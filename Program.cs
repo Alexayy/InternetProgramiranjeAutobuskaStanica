@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using AutobuskaStanicaInternetProgramiranje.Data;
 using AutobuskaStanicaInternetProgramiranje.Models;
+using AutobuskaStanicaInternetProgramiranje.Repository;
+using AutobuskaStanicaInternetProgramiranje.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +21,16 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
                        throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<AutobuskaStanicaDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddScoped<IKorisnikService, KorisnikService>();
+builder.Services.AddScoped<IKartaService, KartaService>();
+builder.Services.AddScoped<IKorisnikKartaService, KorisnikKartaService>();
+builder.Services.AddScoped<ILinijaService, LinijaService>();
+builder.Services.AddScoped<IRezervacijaService, RezervacijaService>();
+builder.Services.AddScoped<IStajalisteService, StajalisteService>();
+builder.Services.AddScoped<IStanicaService, StanicaService>();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
