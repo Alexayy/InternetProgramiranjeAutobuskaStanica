@@ -35,13 +35,13 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
         public async Task<IActionResult> Post(Stanica stanica)
         {
             await _stanicaService.CreateStanicaAsync(stanica);
-            return CreatedAtAction(nameof(Get), new { id = stanica.Id }, stanica);
+            return CreatedAtAction(nameof(Get), new { id = stanica.ID }, stanica);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, Stanica stanica)
         {
-            if (id != stanica.Id)
+            if (id != stanica.ID)
                 return BadRequest();
             await _stanicaService.UpdateStanicaAsync(stanica);
             return NoContent();
