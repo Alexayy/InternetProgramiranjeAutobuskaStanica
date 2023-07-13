@@ -49,6 +49,7 @@
       <None Remove="ClientApp\src\models\stanica.ts" />
     </ItemGroup>
     <ItemGroup>
+      <Folder Include="ClientApp\src\app\servisi\karta\" />
       <Folder Include="Data\Migrations\" />
       <Folder Include="Migrations\" />
     </ItemGroup>

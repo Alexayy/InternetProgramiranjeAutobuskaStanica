@@ -9,7 +9,6 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
-import { MyComponentComponent } from './my-component/my-component.component';
 import { AutobusComponent } from './komponente/autobus/autobus.component';
 import { KartaComponent } from './komponente/karta/karta.component';
 import { KorisnikComponent } from './komponente/korisnik/korisnik.component';
@@ -24,7 +23,6 @@ import { StanicaComponent } from './komponente/stanica/stanica.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    MyComponentComponent,
     AutobusComponent,
     KartaComponent,
     KorisnikComponent,
