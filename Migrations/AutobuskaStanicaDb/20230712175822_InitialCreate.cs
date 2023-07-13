@@ -56,6 +56,20 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
                 });
 
             migrationBuilder.CreateTable(
+                name: "KorisnikKarta",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    KorisnikID = table.Column<int>(type: "int", nullable: false),
+                    KartaID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KorisnikKarta", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Linije",
                 columns: table => new
                 {
@@ -125,6 +139,9 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
 
             migrationBuilder.DropTable(
                 name: "Korisnici");
+
+            migrationBuilder.DropTable(
+                name: "KorisnikKarta");
 
             migrationBuilder.DropTable(
                 name: "Linije");
