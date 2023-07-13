@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "AutobuskaStanicaInternetProgramiranje"
+  "defaultProject": "AutobuskaStanicaInternetProgramiranje",
+  "cli": {
+    "analytics": false
+  }
 }
