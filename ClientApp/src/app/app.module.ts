@@ -7,19 +7,32 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
-import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
+import { MyComponentComponent } from './my-component/my-component.component';
+import { AutobusComponent } from './komponente/autobus/autobus.component';
+import { KartaComponent } from './komponente/karta/karta.component';
+import { KorisnikComponent } from './komponente/korisnik/korisnik.component';
+import { KorisnikKartaComponent } from './komponente/korisnik-karta/korisnik-karta.component';
+import { LinijaComponent } from './komponente/linija/linija.component';
+import { RezervacijaComponent } from './komponente/rezervacija/rezervacija.component';
+import { StajalisteComponent } from './komponente/stajaliste/stajaliste.component';
+import { StanicaComponent } from './komponente/stanica/stanica.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent
+    MyComponentComponent,
+    AutobusComponent,
+    KartaComponent,
+    KorisnikComponent,
+    KorisnikKartaComponent,
+    LinijaComponent,
+    RezervacijaComponent,
+    StajalisteComponent,
+    StanicaComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -28,8 +41,6 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
     ])
   ],
   providers: [
