@@ -19,11 +19,12 @@ builder.Services.AddAuthentication().AddGoogle(googleOptions => {
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
                        throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
-builder.Services.AddDbContext<AutobuskaStanicaDbContext>(options => options.UseSqlServer(connectionString));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+builder.Services.AddDbContext<ApplicationDbContext>(options =>options.UseSqlServer(connectionString));
+
+builder.Services.AddDbContext<AutobuskaStanicaDbContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddScoped<IKorisnikService, KorisnikService>();
 builder.Services.AddScoped<IKartaService, KartaService>();
 builder.Services.AddScoped<IKorisnikKartaService, KorisnikKartaService>();
