@@ -25,6 +25,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>options.UseSqlServ
 builder.Services.AddDbContext<AutobuskaStanicaDbContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+builder.Services.AddScoped<IAutobusService, AutobusService>();
 builder.Services.AddScoped<IKorisnikService, KorisnikService>();
 builder.Services.AddScoped<IKartaService, KartaService>();
 builder.Services.AddScoped<IKorisnikKartaService, KorisnikKartaService>();
@@ -45,7 +46,14 @@ builder.Services.AddAuthentication()
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+builder.Services.AddCors(options => { 
+    options.AddDefaultPolicy(builder => { 
+        builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); 
+    });
+});
+
 var app = builder.Build();
+app.UseCors();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
