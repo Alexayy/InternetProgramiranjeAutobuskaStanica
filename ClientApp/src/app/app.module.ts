@@ -39,6 +39,7 @@ import { StanicaComponent } from './komponente/stanica/stanica.component';
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'autobusi', component: AutobusComponent },
     ])
   ],
   providers: [

@@ -1,1 +1,25 @@
 <p>autobus works!</p>
+
+<div class="container" id="main-container">
+  <div class="row">
+    <div *ngFor="let autobus of autobusi" class="col-md-6 col-xl-3">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title fa fa-bus"> {{autobus?.id}}</h5>
+          <p class="card-text fa fa-car"> Marka: {{autobus?.marka}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item fa fa-address-card"> {{autobus?.model}}</li>
+          <li class="list-group-item fa fa-support"> {{autobus?.brojSedista}}</li>
+        </ul>
+
+        <div class="card-body">
+          <!--<a (click)="onOpenModal('uredi', transporter)" class="btn btn-primary card-link fa fa-pencil" data-placement="top"
+             data-original-title="Uredi"></a>
+          <a (click)="onOpenModal('obrisi', transporter)" class="btn btn-danger card-link fa fa-times" data-placement="top"
+             data-original-title="Obrisi"></a>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
