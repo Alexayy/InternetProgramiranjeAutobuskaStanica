@@ -2,22 +2,20 @@
 
 <div class="container" id="main-container">
   <div class="row">
-    <div *ngFor="let autobus of autobusi" class="col-md-6 col-xl-3">
+    <div *ngFor="let autobus of autobusi">
       <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title fa fa-bus"> {{autobus?.id}}</h5>
-          <p class="card-text fa fa-car"> Marka: {{autobus?.marka}}</p>
+          <h5 class="card-title">{{ autobus?.marka }}</h5>
+          <p class="card-text">Recenica o prevozniku. Ili dve recenice.</p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item fa fa-address-card"> {{autobus?.model}}</li>
-          <li class="list-group-item fa fa-support"> {{autobus?.brojSedista}}</li>
+          <li class="list-group-item">{{ autobus?.sedisteKompanije }}</li>
+          <li class="list-group-item">{{ autobus?.brojTelefonaKompanije }}</li>
+          <li class="list-group-item">{{ autobus?.emailKompanije }}</li>
         </ul>
-
         <div class="card-body">
-          <!--<a (click)="onOpenModal('uredi', transporter)" class="btn btn-primary card-link fa fa-pencil" data-placement="top"
-             data-original-title="Uredi"></a>
-          <a (click)="onOpenModal('obrisi', transporter)" class="btn btn-danger card-link fa fa-times" data-placement="top"
-             data-original-title="Obrisi"></a>-->
+          <a href="{{ autobus?.sajtKompanije }}" class="card-link">Sajt Prevoznika</a>
         </div>
       </div>
     </div>

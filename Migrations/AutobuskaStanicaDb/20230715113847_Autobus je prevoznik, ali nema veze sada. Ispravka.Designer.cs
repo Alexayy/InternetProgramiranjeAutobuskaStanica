@@ -4,6 +4,7 @@ using AutobuskaStanicaInternetProgramiranje.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
 {
     [DbContext(typeof(AutobuskaStanicaDbContext))]
-    partial class AutobuskaStanicaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230715113847_Autobus je prevoznik, ali nema veze sada. Ispravka")]
+    partial class AutobusjeprevoznikalinemavezesadaIspravka
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

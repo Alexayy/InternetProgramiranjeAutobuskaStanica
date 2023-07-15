@@ -4,6 +4,7 @@ using AutobuskaStanicaInternetProgramiranje.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
 {
     [DbContext(typeof(AutobuskaStanicaDbContext))]
-    partial class AutobuskaStanicaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230715113801_Autobus je prevoznik, ali nema veze sada")]
+    partial class Autobusjeprevoznikalinemavezesada
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,14 +36,6 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
                     b.Property<int>("BrojSedista")
                         .HasColumnType("int");
 
-                    b.Property<string>("BrojTelefonaKompanije")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmailKompanije")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Marka")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -49,11 +44,19 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SajtKompanije")
+                    b.Property<string>("brojTelefonaKompanije")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SedisteKompanije")
+                    b.Property<string>("emailKompanije")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("sajtKompanije")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("sedisteKompanije")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

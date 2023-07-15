@@ -3,4 +3,8 @@ export interface autobus {
   marka: string;
   model: string;
   brojSedista: number;
+  sedisteKompanije: string;
+  brojTelefonaKompanije: string;
+  emailKompanije: string;
+  sajtKompanije: string;
 }
