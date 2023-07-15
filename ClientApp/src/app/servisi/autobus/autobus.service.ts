@@ -21,8 +21,8 @@ export class AutobusService {
     return this.http.post<autobus>(`${this.apiServerUrl}/Autobus`, autobus);
   }
 
-  public updateAutobus(autobus: autobus, id: number): Observable<autobus> {
-    return this.http.put<autobus>(`${this.apiServerUrl}/Autobus/${id}`, autobus);
+  public updateAutobus(autobus: autobus): Observable<autobus> {
+    return this.http.put<autobus>(`${this.apiServerUrl}/Autobus`, autobus);
   }
 
   public deleteAutobus(id: number): Observable<void> {

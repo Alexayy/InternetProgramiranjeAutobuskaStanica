@@ -2,7 +2,7 @@
 
 <div class="container" id="main-container">
   <div class="row">
-    <div *ngFor="let autobus of autobusi">
+    <div *ngFor="let autobus of autobusi" class="col-md-6 col-xl-3">
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">
         <div class="card-body">
@@ -15,9 +15,153 @@
           <li class="list-group-item">{{ autobus?.emailKompanije }}</li>
         </ul>
         <div class="card-body">
-          <a href="{{ autobus?.sajtKompanije }}" class="card-link">Sajt Prevoznika</a>
+          <a href="{{ autobus?.sajtKompanije }}" class="card-link">Sajt</a>
+
+          <a (click)="onOpenModal('uredi', autobus)" class="btn btn-primary card-link fa fa-pencil" data-placement="top"
+             data-original-title="Uredi">Uredi</a>
+          <a (click)="onOpenModal('obrisi', autobus)" class="btn btn-danger card-link fa fa-times" data-placement="top"
+             data-original-title="Obrisi">Obrisi</a>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Dodaj Autobus/Prevoznik Modal -->
+  <div class="modal fade" id="dodajAutobusModal" tabindex="-1" role="dialog" aria-labelledby="dodajAutobusModalLabel"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dodajAutobusModalLabel">Dodaj prevoznika</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onDodajAutobus(addForm)">
+
+            <div class="form-group">
+              <label for="marka">Prevoznik</label>
+              <input type="text" ngModel name="marka" class="form-control" id="marka" placeholder="Prevoznik" required>
+            </div>
+
+            <div class="form-group">
+              <label for="sajtKompanije">Web sajt</label>
+              <input type="email" ngModel name="sajtKompanije" class="form-control" id="sajtKompanije" placeholder="Veb sajt"
+                     required>
+            </div>
+
+            <div class="form-group">
+              <label for="sedisteKompanije">Broj telefona</label>
+              <input type="text" ngModel name="sedisteKompanije" class="form-control"
+                     id="sedisteKompanije" placeholder="Sediste kompanije" required>
+            </div>
+
+            <div class="form-group">
+              <label for="brojTelefonaKompanije">Broj Telefona</label>
+              <input type="text" ngModel name="brojTelefonaKompanije" class="form-control" id="brojTelefonaKompanije"
+                     placeholder="Broj telefona" required>
+            </div>
+
+            <div class="form-group">
+              <label for="model">Vozila</label>
+              <input type="text" ngModel name="model" class="form-control" id="model"
+                     placeholder="Prevozni modeli" required>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" id="add-autobus-form" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Sacuvaj</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Uredi Autobus/Prevoznik Modal -->
+  <div class="modal fade" id="urediAutobusModal" tabindex="-1" role="dialog" aria-labelledby="urediAutobusModal"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dodajAutobusModalLabel">Uredi prevoznika</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm">
+
+            <div class="form-group">
+              <label for="marka">Prevoznik</label>
+              <input type="text" ngModel name="marka" class="form-control" id="marka" placeholder="Prevoznik" required>
+            </div>
+
+            <div class="form-group">
+              <label for="sajtKompanije">Web sajt</label>
+              <input type="email" ngModel name="sajtKompanije" class="form-control" id="sajtKompanije" placeholder="Veb sajt"
+                     required>
+            </div>
+
+            <div class="form-group">
+              <label for="SedisteKompanije">Broj telefona</label>
+              <input type="text" ngModel name="sedisteKompanije" class="form-control"
+                     id="sedisteKompanije" placeholder="Sediste kompanije" required>
+            </div>
+
+            <div class="form-group">
+              <label for="brojTelefonaKompanije">Broj Telefona</label>
+              <input type="text" ngModel name="brojTelefonaKompanije" class="form-control" id="brojTelefonaKompanije"
+                     placeholder="Broj telefona" required>
+            </div>
+
+            <div class="form-group">
+              <label for="model">Vozila</label>
+              <input type="text" ngModel name="model" class="form-control" id="model"
+                     placeholder="Prevozni modeli" required>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+              <button (click)="onUrediAutobus(editForm.value)" data-dismiss="modal" class="btn btn-primary">Sacuvaj</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="obrisiAutobusModal" tabindex="-1" role="dialog" aria-labelledby="obrisiAutobusModal"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModelLabel">Obrisi prevoznika</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Da li ste sigurni da zelite da obrisete prevoznika?</p>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Ne</button>
+            <button (click)="onObrisiAutobus(obrisiAutobus!.id)" class="btn btn-danger" data-dismiss="modal">
+              Da
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notifikacije ako nema prevoznika. -->
+  <div *ngIf="autobusi!.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+    <div class="alert alert-info" role="alert">
+      <h4 class="alert-heading">NIJE PRONADJEN NI JEDAN PREVOZNIK!</h4>
+      <p>Zao nam je, nismo nasli prevoznike!</p>
     </div>
   </div>
 </div>
