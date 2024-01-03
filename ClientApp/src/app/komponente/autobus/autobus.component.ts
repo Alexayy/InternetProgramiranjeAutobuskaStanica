@@ -1,15 +1,19 @@
 /* eslint-disable no-var */
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { autobus } from '../../../models/autobus';
 import { AutobusService } from '../../servisi/autobus/autobus.service';
 import { NgForm } from "@angular/forms";
+import * as $ from 'jquery';
+import { Modal } from 'bootstrap';
 
 @Component({
   selector: 'app-autobus',
   templateUrl: './autobus.component.html',
   styleUrls: ['./autobus.component.css']
 })
+
 export class AutobusComponent implements OnInit {
+  @ViewChild('urediModal') urediModal!: ElementRef;
 
   public autobusi: autobus[] = {} as autobus[];
   public urediAutobus: autobus | undefined;
@@ -48,20 +52,13 @@ export class AutobusComponent implements OnInit {
     });
   }
 
-  public onUrediAutobus(autobus: autobus): void {
-    this.autobusServis.updateAutobus(autobus).subscribe({
-      next: (response) => {
-        console.log(response);
-        this.getAutobus();
-      }, error: (err) => {
-        alert(err.message);
-      }
-    });
+  public onUrediAutobus(editForm: NgForm): void {
+    // TODO NAPISATI OVO SRANJE ISPOCETKA
   }
 
-  public onObrisiAutobus(autobusId: number): void {
-    if (autobusId != null) {
-      this.autobusServis.deleteAutobus(autobusId).subscribe({
+  public onObrisiAutobus(): void {
+    if (this.obrisiAutobus && this.obrisiAutobus.id) {
+      this.autobusServis.deleteAutobus(this.obrisiAutobus.id).subscribe({
         next: (response) => {
           console.log(response);
           this.getAutobus();
@@ -73,7 +70,10 @@ export class AutobusComponent implements OnInit {
   }
 
   public onOpenModal(mode: string, autobus?: autobus): void {
-    var temp = document.getElementById('main-container');
+
+    var temp = document.getElementById('main-container') as HTMLElement;
+    const myModal = new Modal(temp);
+
     const button = document.createElement('button');
     button.type = 'button';
     button.style.display = 'none';
@@ -84,12 +84,12 @@ export class AutobusComponent implements OnInit {
     }
 
     if (mode === 'uredi') {
+      console.log("Uredi pozvan.");
 
-      console.log("Uredi pozvan.")
-
-      if (autobus) {
-        console.log(this.urediAutobus);
-        this.urediAutobus = autobus;
+      if (autobus != null) {
+        //myModal.show();
+        console.log("THIS IN MODAL OPEN " + this.urediAutobus);
+        this.urediAutobus = { ...autobus };
       }
 
       button.setAttribute('data-bs-target', '#urediAutobusModal');
@@ -111,5 +111,10 @@ export class AutobusComponent implements OnInit {
     }
 
     button.click();
+  }
+
+  public onCloseModal(): void {
+    this.urediModal.nativeElement.style.display = 'none';
+    this.urediModal.nativeElement.classList.remove('show');
   }
 }

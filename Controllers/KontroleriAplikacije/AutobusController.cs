@@ -48,6 +48,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
                 return BadRequest();
             }
             await _autobusService.UpdateAutobusAsync(autobus);
+            Console.WriteLine(autobus.ToString());
             return NoContent();
         }
 

@@ -1,5 +1,3 @@
-<p>autobus works!</p>
-
 <div class="container" id="main-container">
   <div class="row">
     <div *ngFor="let autobus of autobusi" class="col-md-6 col-xl-3">
@@ -40,6 +38,8 @@
         <div class="modal-body">
           <form #addForm="ngForm" (ngSubmit)="onDodajAutobus(addForm)">
 
+            
+
             <div class="form-group">
               <label for="marka">Prevoznik</label>
               <input type="text" ngModel name="marka" class="form-control" id="marka" placeholder="Prevoznik" required>
@@ -70,8 +70,8 @@
             </div>
 
             <div class="modal-footer">
-              <button type="button" id="add-autobus-form" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
-              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Sacuvaj</button>
+              <button type="button" id="add-autobus-form" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Sacuvaj</button>
             </div>
 
           </form>
@@ -81,8 +81,7 @@
   </div>
 
   <!-- Uredi Autobus/Prevoznik Modal -->
-  <div class="modal fade" id="urediAutobusModal" tabindex="-1" role="dialog" aria-labelledby="urediAutobusModal"
-       aria-hidden="true">
+  <div class="modal fade" id="urediAutobusModal" tabindex="-1" role="dialog" aria-labelledby="urediAutobusModalLabel" aria-hidden="true" #urediModal>
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -95,37 +94,49 @@
           <form #editForm="ngForm">
 
             <div class="form-group">
-              <label for="marka">Prevoznik</label>
-              <input type="text" ngModel name="marka" class="form-control" id="marka" placeholder="Prevoznik" required>
+              <label for="marka">ID</label>
+              <input type="text" ngModel name="id" class="form-control" id="id" placeholder="id" required>
             </div>
 
             <div class="form-group">
-              <label for="sajtKompanije">Web sajt</label>
-              <input type="email" ngModel name="sajtKompanije" class="form-control" id="sajtKompanije" placeholder="Veb sajt"
-                     required>
+              <label for="marka">Marka</label>
+              <input type="text" ngModel name="marka" class="form-control" id="marka" placeholder="Marka" required>
             </div>
 
             <div class="form-group">
-              <label for="SedisteKompanije">Broj telefona</label>
-              <input type="text" ngModel name="sedisteKompanije" class="form-control"
-                     id="sedisteKompanije" placeholder="Sediste kompanije" required>
+              <label for="model">Model</label>
+              <input type="text" ngModel name="model" class="form-control" id="model" placeholder="Model" required>
             </div>
 
             <div class="form-group">
-              <label for="brojTelefonaKompanije">Broj Telefona</label>
-              <input type="text" ngModel name="brojTelefonaKompanije" class="form-control" id="brojTelefonaKompanije"
-                     placeholder="Broj telefona" required>
+              <label for="brojSedista">Broj Sedista</label>
+              <input type="number" ngModel name="brojSedista" class="form-control" id="brojSedista" placeholder="Broj Sedista" required>
             </div>
 
             <div class="form-group">
-              <label for="model">Vozila</label>
-              <input type="text" ngModel name="model" class="form-control" id="model"
-                     placeholder="Prevozni modeli" required>
+              <label for="sedisteKompanije">Sedište Kompanije</label>
+              <input type="text" ngModel name="sedisteKompanije" class="form-control" id="sedisteKompanije" placeholder="Sedište Kompanije" required>
             </div>
+
+            <div class="form-group">
+              <label for="brojTelefonaKompanije">Broj Telefona Kompanije</label>
+              <input type="text" ngModel name="brojTelefonaKompanije" class="form-control" id="brojTelefonaKompanije" placeholder="Broj Telefona Kompanije" required>
+            </div>
+
+            <div class="form-group">
+              <label for="emailKompanije">Email Kompanije</label>
+              <input type="email" ngModel name="emailKompanije" class="form-control" id="emailKompanije" placeholder="Email Kompanije" required>
+            </div>
+
+            <div class="form-group">
+              <label for="sajtKompanije">Sajt Kompanije</label>
+              <input type="text" ngModel name="sajtKompanije" class="form-control" id="sajtKompanije" placeholder="Sajt Kompanije" required>
+            </div>
+
 
             <div class="modal-footer">
-              <button type="button" id="" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
-              <button (click)="onUrediAutobus(editForm.value)" data-dismiss="modal" class="btn btn-primary">Sacuvaj</button>
+              <button type="button" (click)="onCloseModal" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="button" class="btn btn-primary" (click)="onUrediAutobus(editForm.value)">Sacuvaj</button>
             </div>
 
           </form>
@@ -134,7 +145,7 @@
     </div>
   </div>
 
-  <div class="modal fade" id="obrisiAutobusModal" tabindex="-1" role="dialog" aria-labelledby="obrisiAutobusModal"
+  <div class="modal fade" id="obrisiAutobusModal" tabindex="-1" role="dialog" aria-labelledby="obrisiAutobusModalLabel"
        aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -147,8 +158,8 @@
         <div class="modal-body">
           <p>Da li ste sigurni da zelite da obrisete prevoznika?</p>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Ne</button>
-            <button (click)="onObrisiAutobus(obrisiAutobus!.id)" class="btn btn-danger" data-dismiss="modal">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ne</button>
+            <button (click)="onObrisiAutobus()" class="btn btn-danger" data-bs-dismiss="modal">
               Da
             </button>
           </div>

@@ -17,6 +17,7 @@ import { LinijaComponent } from './komponente/linija/linija.component';
 import { RezervacijaComponent } from './komponente/rezervacija/rezervacija.component';
 import { StajalisteComponent } from './komponente/stajaliste/stajaliste.component';
 import { StanicaComponent } from './komponente/stanica/stanica.component';
+import * as AnythingThatIsNotDollarSignOrSymbolOrjQuery from "jquery"
 
 @NgModule({
   declarations: [
@@ -40,6 +41,8 @@ import { StanicaComponent } from './komponente/stanica/stanica.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'autobusi', component: AutobusComponent },
+      { path: 'karte', component: KartaComponent },
+      { path: 'korisnik', component: KorisnikComponent },
     ])
   ],
   providers: [

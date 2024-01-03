@@ -1,6 +1,8 @@
 ﻿using AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije;
 using AutobuskaStanicaInternetProgramiranje.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
 {
@@ -31,6 +33,14 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
                 return NotFound();
             }
             return Ok(korisnik);
+        }
+
+        [HttpGet("trenutnikorisnik")]
+        [Authorize]
+        public IActionResult GetTrenutniKorisnik()
+        {
+            var korisnickoIme = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            return Ok(new { korisnickoIme = korisnickoIme });
         }
 
         [HttpPost]

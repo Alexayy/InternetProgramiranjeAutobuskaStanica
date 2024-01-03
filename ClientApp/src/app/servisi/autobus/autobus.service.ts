@@ -22,7 +22,7 @@ export class AutobusService {
   }
 
   public updateAutobus(autobus: autobus): Observable<autobus> {
-    return this.http.put<autobus>(`${this.apiServerUrl}/Autobus`, autobus);
+    return this.http.put<autobus>(`${this.apiServerUrl}/Autobus/${autobus.id}`, autobus);
   }
 
   public deleteAutobus(id: number): Observable<void> {

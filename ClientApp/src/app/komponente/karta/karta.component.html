@@ -1,1 +1,118 @@
-<p>karta works!</p>
+<div class="container" id="main-container">
+  <!-- Prikaz Kartica Karte -->
+  <div class="row">
+    <div *ngFor="let karta of karte" class="col-md-6 col-xl-3">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Slika karte">
+        <div class="card-body">
+          <h5 class="card-title">{{ karta?.id }}</h5>
+          <p class="card-text">Detalji o karti...</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Rezervacija ID: {{ karta?.rezervacijaId }}</li>
+          <li class="list-group-item">Datum Kupovine: {{ karta?.datumKupovine | date }}</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Link</a>
+          <button (click)="onOpenModal('uredi', karta)" class="btn btn-primary">Uredi</button>
+          <button (click)="onOpenModal('obrisi', karta)" class="btn btn-danger">Obriši</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal za Dodavanje Karte -->
+  <div class="modal fade" id="dodajKartuModal" tabindex="-1" role="dialog" aria-labelledby="dodajKartuModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dodajKartuModalLabel">Dodaj Kartu</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onDodajKartu(addForm)">
+            <div class="form-group">
+              <label for="rezervacijaId">Rezervacija ID</label>
+              <input type="number" ngModel name="rezervacijaId" class="form-control" id="rezervacijaId" placeholder="Unesite Rezervacija ID" required>
+            </div>
+            <div class="form-group">
+              <label for="datumKupovine">Datum Kupovine</label>
+              <input type="date" ngModel name="datumKupovine" class="form-control" id="datumKupovine" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Sačuvaj</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal za Uređivanje Karte -->
+  <div class="modal fade" id="urediKartuModal" tabindex="-1" role="dialog" aria-labelledby="urediKartuModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="urediKartuModalLabel">Uredi Kartu</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm">
+            <div class="form-group">
+              <label for="urediRezervacijaId">Rezervacija ID</label>
+              <input type="number" ngModel name="rezervacijaId" class="form-control" id="urediRezervacijaId" placeholder="Unesite Rezervacija ID" required>
+            </div>
+            <div class="form-group">
+              <label for="urediDatumKupovine">Datum Kupovine</label>
+              <input type="date" ngModel name="datumKupovine" class="form-control" id="urediDatumKupovine" required>
+            </div>
+            <!-- Dodajte dodatna polja po potrebi -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+              <button (click)="onUrediKartu(editForm.value)" data-dismiss="modal" class="btn btn-primary">Sačuvaj Promene</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal za Brisanje Karte -->
+  <div class="modal fade" id="obrisiKartuModal" tabindex="-1" role="dialog" aria-labelledby="obrisiKartuModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="obrisiKartuModalLabel">Obriši Kartu</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Da li ste sigurni da želite da obrišete ovu kartu?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Ne</button>
+          <button type="button" class="btn btn-danger"
+                  (click)="onObrisiKartu(obrisiKartu!.id)" class="btn btn-danger"
+                  data-dismiss="modal">Da, Obriši</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Notifikacija Ako Nema Karti -->
+  <div *ngIf="karte.length == 0" class="col-12">
+    <div class="alert alert-info" role="alert">
+      <h4 class="alert-heading">NEMA DOSTUPNIH KARTI!</h4>
+      <p>Nema dostupnih karti za prikaz.</p>
+    </div>
+  </div>
+</div>

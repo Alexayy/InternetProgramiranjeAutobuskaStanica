@@ -1,1 +1,43 @@
-<p>korisnik works!</p>
+<div class="container mt-3">
+  <!-- Forma za dodavanje novog korisnika -->
+  <form (ngSubmit)="dodajNovogKorisnika(noviKorisnikForm.value)" #noviKorisnikForm="ngForm">
+    <div class="mb-3">
+      <label for="ime" class="form-label">Ime</label>
+      <input type="text" class="form-control" id="ime" name="ime" ngModel required>
+    </div>
+    <div class="mb-3">
+      <label for="prezime" class="form-label">Prezime</label>
+      <input type="text" class="form-control" id="prezime" name="prezime" ngModel required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" name="email" ngModel required>
+    </div>
+    <button type="submit" class="btn btn-primary">Dodaj Korisnika</button>
+  </form>
+
+  <!-- Tabela za prikaz korisnika -->
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Ime</th>
+        <th scope="col">Prezime</th>
+        <th scope="col">Email</th>
+        <th scope="col">Akcije</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let korisnik of korisnici; let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{korisnik.ime}}</td>
+        <td>{{korisnik.prezime}}</td>
+        <td>{{korisnik.email}}</td>
+        <td>
+          <button class="btn btn-success btn-sm" (click)="urediPostojecegKorisnika(korisnik)">Uredi</button>
+          <button class="btn btn-danger btn-sm" (click)="obrisiKorisnika(korisnik.id)">Obriši</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
