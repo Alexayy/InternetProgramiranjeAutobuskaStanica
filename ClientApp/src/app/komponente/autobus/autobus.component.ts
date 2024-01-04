@@ -16,7 +16,11 @@ export class AutobusComponent implements OnInit {
   @ViewChild('urediModal') urediModal!: ElementRef;
 
   public autobusi: autobus[] = {} as autobus[];
-  public urediAutobus: autobus | undefined;
+  public urediAutobus: autobus = { id: 0, marka: '', model: '',
+    brojSedista: 0, sedisteKompanije: '',
+    brojTelefonaKompanije: '', emailKompanije: '',
+    sajtKompanije: ''
+  };
   public obrisiAutobus: autobus | undefined;
 
   constructor(private autobusServis: AutobusService) { }
@@ -53,7 +57,28 @@ export class AutobusComponent implements OnInit {
   }
 
   public onUrediAutobus(editForm: NgForm): void {
-    // TODO NAPISATI OVO SRANJE ISPOCETKA
+    // Proveravamo da li forma ima validne podatke
+    console.log("Kakva je forma? " + editForm);
+
+    if (editForm.valid) {
+      const updatedAutobus = editForm.value;
+      
+      if (updatedAutobus && updatedAutobus.id) {
+        this.autobusServis.updateAutobus(updatedAutobus).subscribe({
+          next: (response) => {
+            console.log("Autobus uspešno ažuriran", response);
+            this.getAutobus();
+          },
+          error: (err) => {
+            console.error("Došlo je do greške prilikom ažuriranja autobusa", err);
+          }
+        });
+      } else {
+        console.error("Greška: Podaci autobusa nisu kompletni.");
+      }
+    } else {
+      console.error("Greška: Forma nije validna.");
+    }
   }
 
   public onObrisiAutobus(): void {
