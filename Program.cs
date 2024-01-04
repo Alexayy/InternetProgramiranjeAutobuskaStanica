@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using AutobuskaStanicaInternetProgramiranje.Auxiliary;
+using Duende.IdentityServer.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -113,9 +114,9 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
         try
         {
             var context = services.GetRequiredService<AutobuskaStanicaDbContext>();
-            if (!context.Korisnici.Any()) 
+            if (!context.Korisnici.Any())
             {
-                GenerateFakeData(context); 
+                GenerateFakeData(context);
             }
         }
         catch (Exception ex)
@@ -132,14 +133,14 @@ void GenerateFakeData(AutobuskaStanicaDbContext context)
     var generator = new FakeDataGenerator();
 
     // Generisanje lažnih podataka za sve entitete
-    var korisnici = generator.GenerateFakeKorisnici(50);
-    var autobusi = generator.GenerateFakeAutobusi(15);
-    var linije = generator.GenerateFakeLinije(20);
-    var stanice = generator.GenerateFakeStanice(30);
-    var rezervacije = generator.GenerateFakeRezervacije(40, linije, korisnici);
-    var karte = generator.GenerateFakeKarte(40);
-    var stajalista = generator.GenerateFakeStajalista(50, linije, stanice);
-    var korisnikKarte = generator.GenerateFakeKorisnikKarte(40, korisnici, karte);
+    var korisnici = generator.GenerateFakeKorisnici(100);
+    var autobusi = generator.GenerateFakeAutobusi(150);
+    var linije = generator.GenerateFakeLinije(200);
+    var stanice = generator.GenerateFakeStanice(300);
+    var rezervacije = generator.GenerateFakeRezervacije(400, linije, korisnici);
+    var karte = generator.GenerateFakeKarte(400);
+    var stajalista = generator.GenerateFakeStajalista(500, linije, stanice);
+    var korisnikKarte = generator.GenerateFakeKorisnikKarte(400, korisnici, karte);
 
     // Dodavanje generisanih podataka u bazu
     context.Korisnici.AddRange(korisnici);

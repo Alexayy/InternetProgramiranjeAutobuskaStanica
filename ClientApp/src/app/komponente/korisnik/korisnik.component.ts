@@ -10,8 +10,8 @@ import { AuthService } from '../../servisi/auth/auth.service';
 })
 export class KorisnikComponent implements OnInit {
 
-  public korisnici: korisnik[] = {} as korisnik[];
-  public urediKorisnika: korisnik | undefined;
+  public korisnici: korisnik[] = [];
+  public urediKorisnika: korisnik = { id: 0, email: '', ime: '', prezime: '', uloga: "korisnik", slikaKorisnika: '' };
   public obrisiKorisnik: korisnik | undefined;
 
   constructor(private korisnikServis: KorisnikService, private authServis: AuthService) { }

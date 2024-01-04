@@ -19,7 +19,7 @@ export class AutobusComponent implements OnInit {
   public urediAutobus: autobus = { id: 0, marka: '', model: '',
     brojSedista: 0, sedisteKompanije: '',
     brojTelefonaKompanije: '', emailKompanije: '',
-    sajtKompanije: ''
+    sajtKompanije: '', slikaAutobusa: ''
   };
   public obrisiAutobus: autobus | undefined;
 

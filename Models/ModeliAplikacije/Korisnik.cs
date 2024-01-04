@@ -6,5 +6,7 @@
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string Email { get; set; }
+        public string Uloga { get; set; }
+        public string SlikaKorisnika { get; set; }
     }
 }

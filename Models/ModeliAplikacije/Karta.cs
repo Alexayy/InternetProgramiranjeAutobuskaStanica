@@ -1,4 +1,7 @@
-﻿namespace AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije
 {
     public class Karta
     {

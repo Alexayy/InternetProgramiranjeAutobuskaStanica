@@ -10,5 +10,6 @@
         public string BrojTelefonaKompanije { get; set; }
         public string EmailKompanije { get; set; }
         public string SajtKompanije { get; set; }
+        public string SlikaAutobusa {  get; set; }
     }
 }

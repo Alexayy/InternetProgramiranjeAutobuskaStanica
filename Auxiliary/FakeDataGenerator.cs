@@ -15,18 +15,23 @@ namespace AutobuskaStanicaInternetProgramiranje.Auxiliary
                 .RuleFor(a => a.SedisteKompanije, f => f.Address.City())
                 .RuleFor(a => a.BrojTelefonaKompanije, f => f.Phone.PhoneNumber())
                 .RuleFor(a => a.EmailKompanije, f => f.Internet.Email())
-                .RuleFor(a => a.SajtKompanije, f => f.Internet.Url());
+                .RuleFor(a => a.SajtKompanije, f => f.Internet.Url())
+                .RuleFor(a => a.SlikaAutobusa, f => f.Image.LoremPixelUrl(width: 100, height:100, category: "cars"));
 
             return autobusFaker.Generate(count);
         }
 
         public List<Korisnik> GenerateFakeKorisnici(int count)
         {
+            var uloge = new[] { "korisnik", "admin" };
+
             var korisnikFaker = new Faker<Korisnik>()
                 .RuleFor(k => k.ID, f => f.IndexFaker + 1)
                 .RuleFor(k => k.Ime, f => f.Name.FirstName())
                 .RuleFor(k => k.Prezime, f => f.Name.LastName())
-                .RuleFor(k => k.Email, f => f.Internet.Email());
+                .RuleFor(k => k.Email, f => f.Internet.Email())
+                .RuleFor(k => k.Uloga, f => f.PickRandom(uloge))
+                .RuleFor(k => k.SlikaKorisnika, f => f.Image.LoremPixelUrl(width: 100, height: 100, category: "people"));
 
             return korisnikFaker.Generate(count);
         }

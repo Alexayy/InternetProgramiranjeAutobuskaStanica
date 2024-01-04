@@ -7,4 +7,5 @@ export interface autobus {
   brojTelefonaKompanije: string;
   emailKompanije: string;
   sajtKompanije: string;
+  slikaAutobusa: string;
 }

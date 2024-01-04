@@ -3,6 +3,7 @@ using System;
 using AutobuskaStanicaInternetProgramiranje.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
 {
     [DbContext(typeof(AutobuskaStanicaDbContext))]
-    partial class AutobuskaStanicaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240104214324_Cetvrta Migracija")]
+    partial class CetvrtaMigracija
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,10 +57,6 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
                         .HasColumnType("text");
 
                     b.Property<string>("SedisteKompanije")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("SlikaAutobusa")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -102,10 +101,6 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
                         .HasColumnType("text");
 
                     b.Property<string>("Prezime")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("SlikaKorisnika")
                         .IsRequired()
                         .HasColumnType("text");
 

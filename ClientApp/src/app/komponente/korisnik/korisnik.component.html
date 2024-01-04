@@ -21,6 +21,7 @@
     <thead>
       <tr>
         <th scope="col">#</th>
+        <th scope="col">Img</th>
         <th scope="col">Ime</th>
         <th scope="col">Prezime</th>
         <th scope="col">Email</th>
@@ -30,6 +31,8 @@
     <tbody>
       <tr *ngFor="let korisnik of korisnici; let i = index">
         <th scope="row">{{i + 1}}</th>
+        <th scope="row">{{i + 1}}</th>
+        <td><img [src]="korisnik.slikaKorisnika" alt="Slika korisnika" height="50"></td>
         <td>{{korisnik.ime}}</td>
         <td>{{korisnik.prezime}}</td>
         <td>{{korisnik.email}}</td>

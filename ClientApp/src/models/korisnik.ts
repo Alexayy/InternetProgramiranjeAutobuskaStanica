@@ -3,4 +3,6 @@ export interface korisnik {
   ime: string;
   prezime: string;
   email: string;
+  uloga: 'korisnik' | 'admin';
+  slikaKorisnika: string;
 }

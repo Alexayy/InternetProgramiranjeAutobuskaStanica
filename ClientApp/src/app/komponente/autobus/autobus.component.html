@@ -5,7 +5,7 @@
     </div>
     <div *ngFor="let autobus of autobusi" class="col-md-6 col-xl-3">
       <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">
+        <img class="card-img-top" src="{{ autobus?.slikaAutobusa }}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{ autobus?.marka }}</h5>
           <p class="card-text">Recenica o prevozniku. Ili dve recenice.</p>
