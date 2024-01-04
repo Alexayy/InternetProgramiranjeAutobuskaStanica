@@ -1,5 +1,5 @@
 export interface karta {
   id: number;
-  rezervacijaId: number;
+  rezervacijaID: number;
   datumKupovine: Date;
 }

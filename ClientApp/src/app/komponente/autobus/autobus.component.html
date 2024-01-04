@@ -1,5 +1,8 @@
 <div class="container" id="main-container">
   <div class="row">
+    <div class="col-12 mb-3">
+      <button type="button" class="btn btn-success" (click)="onOpenModal('add')">Dodaj Novi Autobus</button>
+    </div>
     <div *ngFor="let autobus of autobusi" class="col-md-6 col-xl-3">
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Card image cap">
@@ -25,8 +28,7 @@
   </div>
 
   <!-- Dodaj Autobus/Prevoznik Modal -->
-  <div class="modal fade" id="dodajAutobusModal" tabindex="-1" role="dialog" aria-labelledby="dodajAutobusModalLabel"
-       aria-hidden="true">
+  <div class="modal fade" id="dodajAutobusModal" tabindex="-1" role="dialog" aria-labelledby="dodajAutobusModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -37,48 +39,51 @@
         </div>
         <div class="modal-body">
           <form #addForm="ngForm" (ngSubmit)="onDodajAutobus(addForm)">
-
-            
-
             <div class="form-group">
-              <label for="marka">Prevoznik</label>
-              <input type="text" ngModel name="marka" class="form-control" id="marka" placeholder="Prevoznik" required>
+              <label for="marka">Marka</label>
+              <input type="text" ngModel name="marka" class="form-control" id="marka" placeholder="Marka" required>
             </div>
 
             <div class="form-group">
-              <label for="sajtKompanije">Web sajt</label>
-              <input type="email" ngModel name="sajtKompanije" class="form-control" id="sajtKompanije" placeholder="Veb sajt"
-                     required>
+              <label for="model">Model</label>
+              <input type="text" ngModel name="model" class="form-control" id="model" placeholder="Model" required>
             </div>
 
             <div class="form-group">
-              <label for="sedisteKompanije">Broj telefona</label>
-              <input type="text" ngModel name="sedisteKompanije" class="form-control"
-                     id="sedisteKompanije" placeholder="Sediste kompanije" required>
+              <label for="brojSedista">Broj Sedista</label>
+              <input type="number" ngModel name="brojSedista" class="form-control" id="brojSedista" placeholder="Broj Sedista" required>
             </div>
 
             <div class="form-group">
-              <label for="brojTelefonaKompanije">Broj Telefona</label>
-              <input type="text" ngModel name="brojTelefonaKompanije" class="form-control" id="brojTelefonaKompanije"
-                     placeholder="Broj telefona" required>
+              <label for="sedisteKompanije">Sedište Kompanije</label>
+              <input type="text" ngModel name="sedisteKompanije" class="form-control" id="sedisteKompanije" placeholder="Sedište Kompanije" required>
             </div>
 
             <div class="form-group">
-              <label for="model">Vozila</label>
-              <input type="text" ngModel name="model" class="form-control" id="model"
-                     placeholder="Prevozni modeli" required>
+              <label for="brojTelefonaKompanije">Broj Telefona Kompanije</label>
+              <input type="text" ngModel name="brojTelefonaKompanije" class="form-control" id="brojTelefonaKompanije" placeholder="Broj Telefona Kompanije" required>
+            </div>
+
+            <div class="form-group">
+              <label for="emailKompanije">Email Kompanije</label>
+              <input type="email" ngModel name="emailKompanije" class="form-control" id="emailKompanije" placeholder="Email Kompanije" required>
+            </div>
+
+            <div class="form-group">
+              <label for="sajtKompanije">Sajt Kompanije</label>
+              <input type="text" ngModel name="sajtKompanije" class="form-control" id="sajtKompanije" placeholder="Sajt Kompanije" required>
             </div>
 
             <div class="modal-footer">
-              <button type="button" id="add-autobus-form" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
-              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Sacuvaj</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Sacuvaj</button>
             </div>
-
           </form>
         </div>
       </div>
     </div>
   </div>
+
 
   <!-- Uredi Autobus/Prevoznik Modal -->
   <div class="modal fade" id="urediAutobusModal" tabindex="-1" role="dialog" aria-labelledby="urediAutobusModalLabel" aria-hidden="true" #urediModal>
@@ -136,7 +141,7 @@
             <div class="modal-footer">
               <button type="button" (click)="onCloseModal" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
               <!--<button type="button" class="btn btn-primary" (click)="onUrediAutobus(editForm.value)">Sacuvaj</button>-->
-              <button type="submit" class="btn btn-primary">Sacuvaj</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Sacuvaj</button>
             </div>
 
           </form>

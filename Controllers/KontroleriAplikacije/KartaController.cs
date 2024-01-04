@@ -1,5 +1,6 @@
 ﻿using AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije;
 using AutobuskaStanicaInternetProgramiranje.Repository;
+using AutobuskaStanicaInternetProgramiranje.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
@@ -32,11 +33,17 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(Karta karta)
+        public async Task<ActionResult<Karta>> Post(Karta karta)
         {
+            Console.WriteLine($"Dodavanje nove karte: RezervacijaID = {karta.RezervacijaID}, DatumKupovine = {karta.DatumKupovine}");
+
+            karta.DatumKupovine = DateTime.SpecifyKind(karta.DatumKupovine, DateTimeKind.Utc);
+
             await _kartaService.CreateKartaAsync(karta);
+
             return CreatedAtAction(nameof(Get), new { id = karta.ID }, karta);
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, Karta karta)

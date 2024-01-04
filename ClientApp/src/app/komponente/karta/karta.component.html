@@ -1,21 +1,27 @@
 <div class="container" id="main-container">
   <!-- Prikaz Kartica Karte -->
   <div class="row">
+    <div class="col-12 mb-3">
+      <button type="button" class="btn btn-success" (click)="onOpenModal('add')">Dodaj Novu Kartu</button>
+    </div>
     <div *ngFor="let karta of karte" class="col-md-6 col-xl-3">
       <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src=".../100px180/?text=Image cap" alt="Slika karte">
         <div class="card-body">
           <h5 class="card-title">{{ karta?.id }}</h5>
           <p class="card-text">Detalji o karti...</p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Rezervacija ID: {{ karta?.rezervacijaId }}</li>
+          <li class="list-group-item" *ngIf="karta?.rezervacijaID !== undefined">
+            Rezervacija ID: {{ karta.rezervacijaID }}
+          </li>
           <li class="list-group-item">Datum Kupovine: {{ karta?.datumKupovine | date }}</li>
         </ul>
         <div class="card-body">
           <a href="#" class="card-link">Link</a>
-          <button (click)="onOpenModal('uredi', karta)" class="btn btn-primary">Uredi</button>
-          <button (click)="onOpenModal('obrisi', karta)" class="btn btn-danger">Obriši</button>
+          <a (click)="onOpenModal('uredi', karta)" class="btn btn-primary card-link fa fa-pencil" data-placement="top"
+             data-original-title="Uredi">Uredi</a>
+          <a (click)="onOpenModal('obrisi', karta)" class="btn btn-danger card-link fa fa-times" data-placement="top"
+             data-original-title="Obrisi">Obrisi</a>
         </div>
       </div>
     </div>
@@ -34,16 +40,16 @@
         <div class="modal-body">
           <form #addForm="ngForm" (ngSubmit)="onDodajKartu(addForm)">
             <div class="form-group">
-              <label for="rezervacijaId">Rezervacija ID</label>
-              <input type="number" ngModel name="rezervacijaId" class="form-control" id="rezervacijaId" placeholder="Unesite Rezervacija ID" required>
+              <label for="rezervacijaID">Rezervacija ID</label>
+              <input type="number" ngModel name="rezervacijaID" class="form-control" id="rezervacijaID" placeholder="Unesite Rezervacija ID" required>
             </div>
             <div class="form-group">
               <label for="datumKupovine">Datum Kupovine</label>
               <input type="date" ngModel name="datumKupovine" class="form-control" id="datumKupovine" required>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
-              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Sačuvaj</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Sacuvaj</button>
             </div>
           </form>
         </div>
@@ -63,21 +69,28 @@
           </button>
         </div>
         <div class="modal-body">
-          <form #editForm="ngForm">
+
+          <form #editForm="ngForm" (ngSubmit)="onUrediKartu(editForm)">
+
             <div class="form-group">
-              <label for="urediRezervacijaId">Rezervacija ID</label>
-              <input type="number" ngModel name="rezervacijaId" class="form-control" id="urediRezervacijaId" placeholder="Unesite Rezervacija ID" required>
+              <label for="id">ID</label>
+              <input type="number" [(ngModel)]="urediKartu.id" name="id" class="form-control" id="id" placeholder="{{urediKartu.id}}" disabled required>
             </div>
             <div class="form-group">
-              <label for="urediDatumKupovine">Datum Kupovine</label>
-              <input type="date" ngModel name="datumKupovine" class="form-control" id="urediDatumKupovine" required>
+              <label for="rezervacijaID">Rezervacija ID</label>
+              <input type="number" [(ngModel)]="urediKartu.rezervacijaID" name="rezervacijaID" class="form-control" id="rezervacijaID" placeholder="Rezervacija ID" required>
             </div>
-            <!-- Dodajte dodatna polja po potrebi -->
+            <div class="form-group">
+              <label for="datumKupovine">Datum Kupovine</label>
+              <input type="date" [(ngModel)]="urediKartu.datumKupovine" name="datumKupovine" class="form-control" id="datumKupovine" required>
+            </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
-              <button (click)="onUrediKartu(editForm.value)" data-dismiss="modal" class="btn btn-primary">Sačuvaj Promene</button>
+              <button type="button" (click)="onCloseModal" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Sacuvaj</button>
             </div>
+
           </form>
+
         </div>
       </div>
     </div>

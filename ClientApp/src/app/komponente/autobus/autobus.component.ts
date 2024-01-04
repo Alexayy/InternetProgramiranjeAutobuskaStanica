@@ -15,7 +15,7 @@ import { Modal } from 'bootstrap';
 export class AutobusComponent implements OnInit {
   @ViewChild('urediModal') urediModal!: ElementRef;
 
-  public autobusi: autobus[] = {} as autobus[];
+  public autobusi: autobus[] = [];
   public urediAutobus: autobus = { id: 0, marka: '', model: '',
     brojSedista: 0, sedisteKompanije: '',
     brojTelefonaKompanije: '', emailKompanije: '',
@@ -41,19 +41,21 @@ export class AutobusComponent implements OnInit {
   }
 
   public onDodajAutobus(addForm: NgForm): void {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    document.getElementById("dodaj-autobus-form").click();
-    this.autobusServis.addAutobus(addForm.value).subscribe({
-      next: (response) => {
-        console.log(response);
-        this.getAutobus();
-        addForm.reset();
-      }, error: (error) => {
-        alert(error.message);
-        addForm.reset();
-      }
-    });
+    if (addForm.valid) {
+      this.autobusServis.addAutobus(addForm.value).subscribe({
+        next: (response) => {
+          console.log("Autobus uspešno dodat", response);
+          this.getAutobus(); // Osvežava listu autobusa
+          addForm.reset(); // Resetuje formu
+        },
+
+        error: (error) => {
+          console.error("Došlo je do greške prilikom dodavanja autobusa", error);
+        }
+      });
+    } else {
+      console.error("Greška: Forma nije validna.");
+    }
   }
 
   public onUrediAutobus(editForm: NgForm): void {

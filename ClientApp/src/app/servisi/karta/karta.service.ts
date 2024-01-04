@@ -22,7 +22,7 @@ export class KartaService {
   }
 
   public updateKarta(karta: karta): Observable<karta> {
-    return this.http.put<karta>(`${this.apiServerUrl}/Karta`, karta);
+    return this.http.put<karta>(`${this.apiServerUrl}/Karta/${karta.id}`, karta);
   }
 
   public deleteKarta(id: number): Observable<void> {
