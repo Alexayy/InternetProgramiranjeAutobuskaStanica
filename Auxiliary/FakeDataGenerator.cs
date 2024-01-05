@@ -31,7 +31,8 @@ namespace AutobuskaStanicaInternetProgramiranje.Auxiliary
                 .RuleFor(k => k.Prezime, f => f.Name.LastName())
                 .RuleFor(k => k.Email, f => f.Internet.Email())
                 .RuleFor(k => k.Uloga, f => f.PickRandom(uloge))
-                .RuleFor(k => k.SlikaKorisnika, f => f.Image.Technics());
+                .RuleFor(k => k.SlikaKorisnika, f => f.Image.People())
+                .FinishWith((f, k) => k.KorisnikoveKarte = new List<KorisnikKarta>());
 
             return korisnikFaker.Generate(count);
         }
@@ -41,7 +42,8 @@ namespace AutobuskaStanicaInternetProgramiranje.Auxiliary
             var kartaFaker = new Faker<Karta>()
                 .RuleFor(k => k.ID, f => f.IndexFaker + 1)
                 .RuleFor(k => k.RezervacijaID, f => f.Random.Number(1, count))
-                .RuleFor(k => k.DatumKupovine, f => f.Date.Past(1).ToUniversalTime());
+                .RuleFor(k => k.DatumKupovine, f => f.Date.Past(1).ToUniversalTime())
+                .FinishWith((f, k) => k.KarteKorisnika = new List<KorisnikKarta>()); 
 
             return kartaFaker.Generate(count);
         }
@@ -51,7 +53,15 @@ namespace AutobuskaStanicaInternetProgramiranje.Auxiliary
             var korisnikKartaFaker = new Faker<KorisnikKarta>()
                 .RuleFor(kk => kk.ID, f => f.IndexFaker + 1)
                 .RuleFor(kk => kk.KorisnikID, f => f.PickRandom(korisnici).ID)
-                .RuleFor(kk => kk.KartaID, f => f.PickRandom(karte).ID);
+                .RuleFor(kk => kk.KartaID, f => f.PickRandom(karte).ID)
+                .FinishWith((f, kk) =>
+                {
+                    kk.Korisnik = korisnici.FirstOrDefault(k => k.ID == kk.KorisnikID);
+                    kk.Karta = karte.FirstOrDefault(k => k.ID == kk.KartaID);
+
+                    kk.Korisnik.KorisnikoveKarte.Add(kk);
+                    kk.Karta.KarteKorisnika.Add(kk);
+                });
 
             return korisnikKartaFaker.Generate(count);
         }

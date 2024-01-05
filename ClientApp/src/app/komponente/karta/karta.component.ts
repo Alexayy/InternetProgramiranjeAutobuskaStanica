@@ -43,7 +43,8 @@ export class KartaComponent implements OnInit {
 
       let novaKarta = {
         ...addForm.value,
-        datumKupovine: datumKupovine
+        datumKupovine: datumKupovine,
+        karteKorisnika: [] 
       }
 
       this.kartaServis.addKarta(novaKarta).subscribe({
@@ -72,7 +73,8 @@ export class KartaComponent implements OnInit {
       const uredjenaKarta = {
         ...editForm.value,
         datumKupovine: datumKupovine,
-        id: this.urediKartu.id
+        id: this.urediKartu.id,
+        karteKorisnika: [] 
       };
 
       if (uredjenaKarta && uredjenaKarta.id) {

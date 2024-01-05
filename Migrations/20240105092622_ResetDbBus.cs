@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AutobuskaStanicaInternetProgramiranje.Migrations
 {
     /// <inheritdoc />
-    public partial class MigracijaJedan : Migration
+    public partial class ResetDbBus : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,14 +18,14 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
                 {
                     ID = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Marka = table.Column<string>(type: "text", nullable: false),
-                    Model = table.Column<string>(type: "text", nullable: false),
+                    Marka = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Model = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     BrojSedista = table.Column<int>(type: "integer", nullable: false),
-                    SedisteKompanije = table.Column<string>(type: "text", nullable: false),
-                    BrojTelefonaKompanije = table.Column<string>(type: "text", nullable: false),
-                    EmailKompanije = table.Column<string>(type: "text", nullable: false),
-                    SajtKompanije = table.Column<string>(type: "text", nullable: false),
-                    SlikaAutobusa = table.Column<string>(type: "text", nullable: false)
+                    SedisteKompanije = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    BrojTelefonaKompanije = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    EmailKompanije = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    SajtKompanije = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    SlikaAutobusa = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -52,29 +52,15 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
                 {
                     ID = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Ime = table.Column<string>(type: "text", nullable: false),
-                    Prezime = table.Column<string>(type: "text", nullable: false),
-                    Email = table.Column<string>(type: "text", nullable: false),
-                    Uloga = table.Column<string>(type: "text", nullable: false),
-                    SlikaKorisnika = table.Column<string>(type: "text", nullable: false)
+                    Ime = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Prezime = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Uloga = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    SlikaKorisnika = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Korisnici", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "KorisnikKarta",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    KorisnikID = table.Column<int>(type: "integer", nullable: false),
-                    KartaID = table.Column<int>(type: "integer", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_KorisnikKarta", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -83,8 +69,8 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
                 {
                     ID = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    PolaznaStanica = table.Column<string>(type: "text", nullable: false),
-                    DolaznaStanica = table.Column<string>(type: "text", nullable: false),
+                    PolaznaStanica = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    DolaznaStanica = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
                     VremePolaska = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
@@ -127,13 +113,49 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
                 {
                     ID = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Naziv = table.Column<string>(type: "text", nullable: false),
-                    Adresa = table.Column<string>(type: "text", nullable: false)
+                    Naziv = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
+                    Adresa = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Stanice", x => x.ID);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "KorisnikKarta",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    KorisnikID = table.Column<int>(type: "integer", nullable: false),
+                    KartaID = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_KorisnikKarta", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_KorisnikKarta_Karte_KartaID",
+                        column: x => x.KartaID,
+                        principalTable: "Karte",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_KorisnikKarta_Korisnici_KorisnikID",
+                        column: x => x.KorisnikID,
+                        principalTable: "Korisnici",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_KorisnikKarta_KartaID",
+                table: "KorisnikKarta",
+                column: "KartaID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_KorisnikKarta_KorisnikID",
+                table: "KorisnikKarta",
+                column: "KorisnikID");
         }
 
         /// <inheritdoc />
@@ -141,12 +163,6 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Autobusi");
-
-            migrationBuilder.DropTable(
-                name: "Karte");
-
-            migrationBuilder.DropTable(
-                name: "Korisnici");
 
             migrationBuilder.DropTable(
                 name: "KorisnikKarta");
@@ -162,6 +178,12 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
 
             migrationBuilder.DropTable(
                 name: "Stanice");
+
+            migrationBuilder.DropTable(
+                name: "Karte");
+
+            migrationBuilder.DropTable(
+                name: "Korisnici");
         }
     }
 }

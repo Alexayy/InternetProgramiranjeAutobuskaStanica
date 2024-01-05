@@ -9,5 +9,6 @@ namespace AutobuskaStanicaInternetProgramiranje.Repository
         Task CreateAutobusAsync(Autobus autobus);
         Task UpdateAutobusAsync(Autobus autobus);
         Task DeleteAutobusAsync(int id);
+        Task<bool> AutobusExistsAsync(int id);
     }
 }

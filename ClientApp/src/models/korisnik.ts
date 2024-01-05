@@ -1,3 +1,5 @@
+import { korisnikKarta } from "./korisnikKarta";
+
 export interface korisnik {
   id: 0;
   ime: string;
@@ -5,4 +7,5 @@ export interface korisnik {
   email: string;
   uloga: 'korisnik' | 'admin';
   slikaKorisnika: string;
+  korisnikoveKarte?: korisnikKarta[];
 }

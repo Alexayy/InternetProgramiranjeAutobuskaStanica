@@ -13,6 +13,6 @@ namespace AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije
         public string Email { get; set; }
         public string Uloga { get; set; }
         public string SlikaKorisnika { get; set; }
-        public List<Karta> KorisnikKarte { get; set; } 
+        public List<KorisnikKarta> KorisnikoveKarte { get; set; }
     }
 }

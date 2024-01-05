@@ -36,7 +36,7 @@ export class KorisnikComponent implements OnInit {
   public onDodajKorisnika(addForm: NgForm): void {
     if (addForm.valid) {
 
-      let noviKorisnik = { ...addForm.value }
+      let noviKorisnik = { ...addForm.value, korisnikoveKarte: [] }
 
       console.log(noviKorisnik, noviKorisnik.id);
 
@@ -61,7 +61,7 @@ export class KorisnikComponent implements OnInit {
     console.log("Kakva je forma? " + editForm.value);
 
     if (editForm.valid) {
-      const updatedKorisnik = { id: this.urediKorisnika.id, ...editForm.value };
+      const updatedKorisnik = { id: this.urediKorisnika.id, ...editForm.value, korisnikoveKarte: [] };
 
       if (updatedKorisnik && updatedKorisnik.id) {
         this.korisnikServis.updateKorisnik(updatedKorisnik).subscribe({

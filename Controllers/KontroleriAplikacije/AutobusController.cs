@@ -36,6 +36,10 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
         [HttpPost]
         public async Task<ActionResult<Autobus>> CreateAutobus(Autobus autobus)
         {
+            if (await _autobusService.AutobusExistsAsync(autobus.ID))
+            {
+                return Conflict("Autobus sa datim ID-jem već postoji.");
+            }
             await _autobusService.CreateAutobusAsync(autobus);
             return CreatedAtAction(nameof(GetAutobus), new { id = autobus.ID }, autobus);
         }

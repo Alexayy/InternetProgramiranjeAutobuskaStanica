@@ -41,7 +41,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Data
                 entity.Property(e => e.Marka).IsRequired().HasMaxLength(100);
                 entity.Property(e => e.Model).IsRequired().HasMaxLength(100);
                 entity.Property(e => e.SedisteKompanije).IsRequired().HasMaxLength(200);
-                entity.Property(e => e.BrojTelefonaKompanije).IsRequired().HasMaxLength(20);
+                entity.Property(e => e.BrojTelefonaKompanije).IsRequired().HasMaxLength(200);
                 entity.Property(e => e.EmailKompanije).IsRequired().HasMaxLength(100);
                 entity.Property(e => e.SajtKompanije).IsRequired().HasMaxLength(100);
                 entity.Property(e => e.SlikaAutobusa).IsRequired().HasMaxLength(200);
@@ -98,13 +98,13 @@ namespace AutobuskaStanicaInternetProgramiranje.Data
             });
 
             modelBuilder.Entity<KorisnikKarta>()
-                .HasOne<Korisnik>(kk => kk.Korisnik)
-                .WithMany(k => k.KorisnikKarte)
+                .HasOne(kk => kk.Korisnik)
+                .WithMany(k => k.KorisnikoveKarte)
                 .HasForeignKey(kk => kk.KorisnikID);
 
             modelBuilder.Entity<KorisnikKarta>()
-                .HasOne<Karta>(kk => kk.Karta)
-                .WithMany(k => k.KorisnikKarte)
+                .HasOne(kk => kk.Karta)
+                .WithMany(k => k.KarteKorisnika)
                 .HasForeignKey(kk => kk.KartaID);
         }
     }

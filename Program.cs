@@ -105,26 +105,26 @@ app.MapRazorPages();
 app.MapFallbackToFile("index.html");
 
 
-if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
-{
-    using (var scope = app.Services.CreateScope())
-    {
-        var services = scope.ServiceProvider;
+//if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
+//{
+//    using (var scope = app.Services.CreateScope())
+//    {
+//        var services = scope.ServiceProvider;
 
-        try
-        {
-            var context = services.GetRequiredService<AutobuskaStanicaDbContext>();
-            if (!context.Korisnici.Any())
-            {
-                GenerateFakeData(context);
-            }
-        }
-        catch (Exception ex)
-        {
+//        try
+//        {
+//            var context = services.GetRequiredService<AutobuskaStanicaDbContext>();
+//            if (!context.Korisnici.Any())
+//            {
+//                GenerateFakeData(context);
+//            }
+//        }
+//        catch (Exception ex)
+//        {
             
-        }
-    }
-}
+//        }
+//    }
+//}
 
 app.Run();
 

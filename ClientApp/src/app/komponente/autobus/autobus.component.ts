@@ -16,7 +16,8 @@ export class AutobusComponent implements OnInit {
   @ViewChild('urediModal') urediModal!: ElementRef;
 
   public autobusi: autobus[] = [];
-  public urediAutobus: autobus = { id: 0, marka: '', model: '',
+  public urediAutobus: autobus = {
+    id: 0, marka: '', model: '',
     brojSedista: 0, sedisteKompanije: '',
     brojTelefonaKompanije: '', emailKompanije: '',
     sajtKompanije: '', slikaAutobusa: ''
@@ -42,11 +43,18 @@ export class AutobusComponent implements OnInit {
 
   public onDodajAutobus(addForm: NgForm): void {
     if (addForm.valid) {
-      this.autobusServis.addAutobus(addForm.value).subscribe({
+
+      console.log("koji jebeni kurac: ", addForm.value);
+
+      let noviAutobus = {
+        ...addForm.value
+      };
+
+      this.autobusServis.addAutobus(noviAutobus).subscribe({
         next: (response) => {
           console.log("Autobus uspešno dodat", response);
-          this.getAutobus(); // Osvežava listu autobusa
-          addForm.reset(); // Resetuje formu
+          this.getAutobus();
+          addForm.reset();
         },
 
         error: (error) => {
@@ -64,7 +72,7 @@ export class AutobusComponent implements OnInit {
 
     if (editForm.valid) {
       const updatedAutobus = editForm.value;
-      
+
       if (updatedAutobus && updatedAutobus.id) {
         this.autobusServis.updateAutobus(updatedAutobus).subscribe({
           next: (response) => {

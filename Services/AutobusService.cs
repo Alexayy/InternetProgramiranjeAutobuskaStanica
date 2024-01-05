@@ -14,6 +14,11 @@ namespace AutobuskaStanicaInternetProgramiranje.Services
             _context = context;
         }
 
+        public async Task<bool> AutobusExistsAsync(int id)
+        {
+            return await _context.Autobusi.AnyAsync(a => a.ID == id);
+        }
+
         public async Task<IEnumerable<Autobus>> GetAutobusiAsync()
         {
             return await _context.Autobusi.ToListAsync();

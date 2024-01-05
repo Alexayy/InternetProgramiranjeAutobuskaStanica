@@ -35,31 +35,38 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
 
                     b.Property<string>("BrojTelefonaKompanije")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("EmailKompanije")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Marka")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("SajtKompanije")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("SedisteKompanije")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("SlikaAutobusa")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.HasKey("ID");
 
@@ -95,23 +102,28 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Ime")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("Prezime")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("SlikaKorisnika")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Uloga")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.HasKey("ID");
 
@@ -134,6 +146,10 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
 
                     b.HasKey("ID");
 
+                    b.HasIndex("KartaID");
+
+                    b.HasIndex("KorisnikID");
+
                     b.ToTable("KorisnikKarta");
                 });
 
@@ -147,11 +163,13 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
 
                     b.Property<string>("DolaznaStanica")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("PolaznaStanica")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<DateTime>("VremePolaska")
                         .HasColumnType("timestamp with time zone");
@@ -212,15 +230,46 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
 
                     b.Property<string>("Adresa")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.Property<string>("Naziv")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
 
                     b.HasKey("ID");
 
                     b.ToTable("Stanice");
+                });
+
+            modelBuilder.Entity("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.KorisnikKarta", b =>
+                {
+                    b.HasOne("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.Karta", "Karta")
+                        .WithMany("KarteKorisnika")
+                        .HasForeignKey("KartaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.Korisnik", "Korisnik")
+                        .WithMany("KorisnikoveKarte")
+                        .HasForeignKey("KorisnikID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Karta");
+
+                    b.Navigation("Korisnik");
+                });
+
+            modelBuilder.Entity("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.Karta", b =>
+                {
+                    b.Navigation("KarteKorisnika");
+                });
+
+            modelBuilder.Entity("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.Korisnik", b =>
+                {
+                    b.Navigation("KorisnikoveKarte");
                 });
 #pragma warning restore 612, 618
         }
