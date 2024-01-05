@@ -1,1 +1,120 @@
-<p>rezervacija works!</p>
+<div class="container" id="main-container">
+  <!-- Dugme za dodavanje nove rezervacije -->
+  <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#dodajRezervacijuModal">Dodaj Novu Rezervaciju</button>
+
+  <!-- Tabela za prikaz rezervacija -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Polazna Stanica</th>
+        <th scope="col">Dolazna Stanica</th>
+        <th scope="col">Vreme Polaska</th>
+        <th scope="col">Korisnik</th>
+        <th scope="col">Broj Sedista</th>
+        <th scope="col">Akcije</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rez of rezervacijeExtended; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ rez.linijaPolaznaStanica }}</td>
+        <td>{{ rez.linijaDolaznaStanica }}</td>
+        <td>{{ rez.vremePolaska | date:'short' }}</td>
+        <td>{{ rez.korisnikIme }} {{ rez.korisnikPrezime }} ({{ rez.korisnikEmail }})</td>
+        <td>{{ rez.sedisteID }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="onOpenModal('uredi', rez)" data-bs-dismiss="modal">Uredi</button>
+          <button class="btn btn-danger btn-sm" (click)="onOpenModal('obrisi', rez)" data-bs-dismiss="modal">Obriši</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="dodajRezervacijuModal" tabindex="-1" role="dialog" aria-labelledby="dodajRezervacijuModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dodajRezervacijuModalLabel">Dodaj Novu Rezervaciju</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addRezervacijaForm="ngForm" (ngSubmit)="onDodajRezervaciju(addRezervacijaForm)">
+            <div class="form-group">
+              <label for="linijaID">ID Linije</label>
+              <input type="number" class="form-control" id="linijaID" ngModel name="linijaID" required>
+            </div>
+            <div class="form-group">
+              <label for="sedisteID">ID Sedista</label>
+              <input type="number" class="form-control" id="sedisteID" ngModel name="sedisteID" required>
+            </div>
+            <div class="form-group">
+              <label for="korisnikID">ID Korisnika</label>
+              <input type="number" class="form-control" id="korisnikID" ngModel name="korisnikID" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Dodaj</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="urediRezervacijuModal" tabindex="-1" role="dialog" aria-labelledby="urediRezervacijuModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="urediRezervacijuModalLabel">Uredi Rezervaciju</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editRezervacijaForm="ngForm" (ngSubmit)="onUrediRezervaciju(editRezervacijaForm)">
+            <div class="form-group">
+              <label for="urediLinijaId">ID Linije</label>
+              <input type="number" class="form-control" id="urediLinijaId" [(ngModel)]="urediRezervaciju.linijaID" name="linijaID" required>
+            </div>
+            <div class="form-group">
+              <label for="urediSedisteId">ID Sedista</label>
+              <input type="number" class="form-control" id="urediSedisteId" [(ngModel)]="urediRezervaciju.sedisteID" name="sedisteID" required>
+            </div>
+            <div class="form-group">
+              <label for="urediKorisnikId">ID Korisnika</label>
+              <input type="number" class="form-control" id="urediKorisnikId" [(ngModel)]="urediRezervaciju.korisnikID" name="korisnikID" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Uredi</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="obrisiRezervacijuModal" tabindex="-1" role="dialog" aria-labelledby="obrisiRezervacijuModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="obrisiRezervacijuModalLabel">Obriši Rezervaciju</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Da li ste sigurni da želite da obrišete ovu rezervaciju?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ne</button>
+          <button type="button" class="btn btn-danger" (click)="onObrisiRezervaciju()" data-bs-dismiss="modal">Da, Obriši</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

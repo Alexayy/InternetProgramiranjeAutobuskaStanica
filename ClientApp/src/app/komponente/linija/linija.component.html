@@ -1,1 +1,114 @@
-<p>linija works!</p>
+<div class="container" id="main-container">
+  <button type="button" class="btn btn-success" (click)="onOpenModal('add')">Dodaj Novu Liniju</button>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Polazna Stanica</th>
+        <th scope="col">Dolazna Stanica</th>
+        <th scope="col">Vreme Polaska</th>
+        <th scope="col">Akcije</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let linija of linije; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ linija.polaznaStanica }}</td>
+        <td>{{ linija.dolaznaStanica }}</td>
+        <td>{{ linija.vremePolaska | date:'short' }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="onOpenModal('uredi', linija)">Uredi</button>
+          <button class="btn btn-danger btn-sm" (click)="onOpenModal('obrisi', linija)">Obriši</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="dodajLinijuModal" tabindex="-1" role="dialog" aria-labelledby="dodajLinijuModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dodajLinijuModalLabel">Dodaj Novu Liniju</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addLinijaForm="ngForm" (ngSubmit)="onDodajLiniju(addLinijaForm)">
+            <div class="form-group">
+              <label for="polaznaStanica">Polazna Stanica</label>
+              <input type="text" class="form-control" id="polaznaStanica" ngModel name="polaznaStanica" required>
+            </div>
+            <div class="form-group">
+              <label for="dolaznaStanica">Dolazna Stanica</label>
+              <input type="text" class="form-control" id="dolaznaStanica" ngModel name="dolaznaStanica" required>
+            </div>
+            <div class="form-group">
+              <label for="vremePolaska">Vreme Polaska</label>
+              <input type="datetime-local" class="form-control" id="vremePolaska" ngModel name="vremePolaska" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary">Dodaj</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="urediLinijuModal" tabindex="-1" role="dialog" aria-labelledby="urediLinijuModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="urediLinijuModalLabel">Uredi Liniju</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editLinijaForm="ngForm" (ngSubmit)="onUrediLiniju(editLinijaForm)">
+            <div class="form-group">
+              <label for="urediPolaznaStanica">Polazna Stanica</label>
+              <input type="text" class="form-control" id="urediPolaznaStanica" [(ngModel)]="urediLiniju.polaznaStanica" name="polaznaStanica" required>
+            </div>
+            <div class="form-group">
+              <label for="urediDolaznaStanica">Dolazna Stanica</label>
+              <input type="text" class="form-control" id="urediDolaznaStanica" [(ngModel)]="urediLiniju.dolaznaStanica" name="dolaznaStanica" required>
+            </div>
+            <div class="form-group">
+              <label for="urediVremePolaska">Vreme Polaska</label>
+              <input type="datetime-local" class="form-control" id="urediVremePolaska" [(ngModel)]="urediLiniju.vremePolaska" name="vremePolaska" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary">Uredi</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal za Brisanje Linije -->
+  <div class="modal fade" id="obrisiLinijuModal" tabindex="-1" role="dialog" aria-labelledby="obrisiLinijuModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="obrisiLinijuModalLabel">Obriši Liniju</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Da li ste sigurni da želite da obrišete ovu liniju?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ne</button>
+          <button type="button" class="btn btn-danger" (click)="onObrisiLiniju()" data-bs-dismiss="modal">Da, Obriši</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
