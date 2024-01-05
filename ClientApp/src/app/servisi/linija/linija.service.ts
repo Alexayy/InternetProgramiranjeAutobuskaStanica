@@ -31,4 +31,8 @@ export class LinijaService {
   public deleteLinija(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiServerUrl}/Linija/${id}`);
   }
+
+  public pretraziLinije(polazna: string, dolazna: string): Observable<any> {
+    return this.http.get<any>(`${this.apiServerUrl}/Linija/pretraga/?polazna=${polazna}&dolazna=${dolazna}`);
+  }
 }

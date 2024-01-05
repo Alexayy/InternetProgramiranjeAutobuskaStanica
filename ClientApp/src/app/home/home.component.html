@@ -1,14 +1,33 @@
-<h1>Hello, world!</h1>
-<p>Welcome to your new single-page application, built with:</p>
-<ul>
-  <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
-  <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
-  <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
-</ul>
-<p>To help you get started, we've also set up:</p>
-<ul>
-  <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
-  <li><strong>Angular CLI integration</strong>. In development mode, there's no need to run <code>ng serve</code>. It runs in the background automatically, so your client-side resources are dynamically built on demand and the page refreshes when you modify any file.</li>
-  <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and your <code>dotnet publish</code> configuration automatically invokes <code>ng build</code> to produce minified, ahead-of-time compiled JavaScript files.</li>
-</ul>
-<p>The <code>ClientApp</code> subdirectory is a standard Angular CLI application. If you open a command prompt in that directory, you can run any <code>ng</code> command (e.g., <code>ng test</code>), or use <code>npm</code> to install extra packages into it.</p>
+<div class="container">
+  <form #pretragaForm="ngForm" (ngSubmit)="pretraziLinije(pretragaForm)">
+    <div class="form-group">
+      <label for="polazna">Polazna stanica:</label>
+      <input type="text" id="polazna" name="polazna" ngModel class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="dolazna">Dolazna stanica:</label>
+      <input type="text" id="dolazna" name="dolazna" ngModel class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Pretraži</button>
+    <button type="button" class="btn btn-secondary" (click)="resetujPretragu()">Resetuj</button>
+  </form>
+
+  <div *ngIf="linije.length > 0">
+    <h3 *ngIf="isPretraga">Rezultati pretrage</h3>
+    <h3 *ngIf="!isPretraga">Sve linije</h3>
+    <div *ngIf="linije.length === 0">
+      <p>{{ porukaNemaRezultata }}</p>
+    </div>
+
+    <ul>
+      <li *ngFor="let linija of linije">
+        {{ linija.polaznaStanica }} - {{ linija.dolaznaStanica }}
+     
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="linije.length === 0">
+    <p>Nema rezultata za prikaz.</p>
+  </div>
+</div>

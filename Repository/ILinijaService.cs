@@ -9,5 +9,6 @@ namespace AutobuskaStanicaInternetProgramiranje.Repository
         Task CreateLinijaAsync(Linija linija);
         Task UpdateLinijaAsync(Linija linija);
         Task DeleteLinijaAsync(int id);
+        Task<IEnumerable<Linija>> PretraziLinijeAsync(string polazna, string dolazna);
     }
 }

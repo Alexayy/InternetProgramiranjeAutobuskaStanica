@@ -45,5 +45,13 @@ namespace AutobuskaStanicaInternetProgramiranje.Services
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<IEnumerable<Linija>> PretraziLinijeAsync(string polazna, string dolazna)
+        {
+            return await _context.Linije
+                .Where(l => l.PolaznaStanica.Contains(polazna) && l.DolaznaStanica.Contains(dolazna))
+                .ToListAsync();
+        }
+
     }
 }

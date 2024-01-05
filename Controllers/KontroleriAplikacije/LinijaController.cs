@@ -53,5 +53,18 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
             await _linijaService.DeleteLinijaAsync(id);
             return NoContent();
         }
+
+        [HttpGet("pretraga")]
+        public async Task<IActionResult> Pretraga(string polazna, string dolazna)
+        {
+            var rezultati = await _linijaService.PretraziLinijeAsync(polazna, dolazna);
+            if (rezultati == null || !rezultati.Any())
+            {
+                return Ok(new List<Linija>()); // Vraća prazan niz umesto 404 greške
+            }
+            return Ok(rezultati);
+        }
+
+
     }
 }

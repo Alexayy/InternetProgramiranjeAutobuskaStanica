@@ -47,6 +47,7 @@ import * as AnythingThatIsNotDollarSignOrSymbolOrjQuery from "jquery"
       { path: 'linija', component: LinijaComponent },
       { path: 'rezervacija', component: RezervacijaComponent },
       { path: 'stanica', component: StanicaComponent },
+      { path: 'stajaliste', component: StajalisteComponent },
     ])
   ],
   providers: [

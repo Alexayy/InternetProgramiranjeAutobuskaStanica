@@ -1,1 +1,103 @@
-<p>stajaliste works!</p>
+<div class="container" id="main-container">
+  <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#dodajStajalisteModal">Dodaj Novo Stajalište</button>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID Linije</th>
+        <th scope="col">ID Stanice</th>
+        <th scope="col">Akcije</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stajaliste of stajalista; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ stajaliste.linijaID }}</td>
+        <td>{{ stajaliste.stanicaID }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="onOpenModal('uredi', stajaliste)">Uredi</button>
+          <button class="btn btn-danger btn-sm" (click)="onOpenModal('obrisi', stajaliste)">Obriši</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="dodajStajalisteModal" tabindex="-1" aria-labelledby="dodajStajalisteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dodajStajalisteModalLabel">Dodaj Novo Stajalište</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addStajalisteForm="ngForm" (ngSubmit)="onDodajStajaliste(addStajalisteForm)">
+            <div class="form-group">
+              <label for="linijaID">ID Linije</label>
+              <input type="number" class="form-control" id="linijaID" ngModel name="linijaID" required>
+            </div>
+            <div class="form-group">
+              <label for="stanicaID">ID Stanice</label>
+              <input type="number" class="form-control" id="stanicaID" ngModel name="stanicaID" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary">Dodaj</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="urediStajalisteModal" tabindex="-1" aria-labelledby="urediStajalisteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="urediStajalisteModalLabel">Uredi Stajalište</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editStajalisteForm="ngForm" (ngSubmit)="onUrediStajaliste(editStajalisteForm)">
+            <div class="form-group">
+              <label for="urediLinijaId">ID Linije</label>
+              <input type="number" class="form-control" id="urediLinijaId" [(ngModel)]="urediStajaliste.linijaID" name="linijaID" required>
+            </div>
+            <div class="form-group">
+              <label for="urediStanicaId">ID Stanice</label>
+              <input type="number" class="form-control" id="urediStanicaId" [(ngModel)]="urediStajaliste.stanicaID" name="stanicaID" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary">Uredi</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="obrisiStajalisteModal" tabindex="-1" aria-labelledby="obrisiStajalisteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="obrisiStajalisteModalLabel">Obriši Stajalište</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Da li ste sigurni da želite da obrišete ovo stajalište?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ne</button>
+          <button type="button" class="btn btn-danger" (click)="onObrisiStajaliste()" data-bs-dismiss="modal">Da, Obriši</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
