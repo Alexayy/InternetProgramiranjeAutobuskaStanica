@@ -1,6 +1,8 @@
-﻿using AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije;
+﻿using AutobuskaStanicaInternetProgramiranje.Data;
+using AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije;
 using AutobuskaStanicaInternetProgramiranje.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
 {
@@ -9,10 +11,13 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
     public class KorisnikKartaController : ControllerBase
     {
         private readonly IKorisnikKartaService _korisnikKartaService;
+        private readonly AutobuskaStanicaDbContext _context;
 
-        public KorisnikKartaController(IKorisnikKartaService korisnikKartaService)
+        public KorisnikKartaController(IKorisnikKartaService korisnikKartaService,
+            AutobuskaStanicaDbContext context)
         {
             _korisnikKartaService = korisnikKartaService;
+            _context = context;
         }
 
         [HttpGet]
@@ -32,11 +37,28 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(KorisnikKarta korisnikKarta)
+        public async Task<IActionResult> Post([FromBody] KorisnikKarta model)
         {
+            var korisnik = await _context.Korisnici.FindAsync(model.KorisnikID);
+            var karta = await _context.Karte.FindAsync(model.KartaID);
+
+            if (korisnik == null || karta == null)
+            {
+                return NotFound("Korisnik ili karta nije pronađen");
+            }
+
+            var korisnikKarta = new KorisnikKarta
+            {
+                KorisnikID = model.KorisnikID,
+                KartaID = model.KartaID
+            };
+
+            Console.WriteLine("aaaaaa ", korisnikKarta.ToString());
+
             await _korisnikKartaService.CreateKorisnikKartaAsync(korisnikKarta);
             return CreatedAtAction(nameof(Get), new { id = korisnikKarta.ID }, korisnikKarta);
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, KorisnikKarta korisnikKarta)

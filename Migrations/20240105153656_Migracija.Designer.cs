@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AutobuskaStanicaInternetProgramiranje.Migrations
 {
     [DbContext(typeof(AutobuskaStanicaDbContext))]
-    [Migration("20240105092622_ResetDbBus")]
-    partial class ResetDbBus
+    [Migration("20240105153656_Migracija")]
+    partial class Migracija
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,38 +38,31 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
 
                     b.Property<string>("BrojTelefonaKompanije")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasColumnType("text");
 
                     b.Property<string>("EmailKompanije")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Marka")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("text");
 
                     b.Property<string>("SajtKompanije")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("text");
 
                     b.Property<string>("SedisteKompanije")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasColumnType("text");
 
                     b.Property<string>("SlikaAutobusa")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasColumnType("text");
 
                     b.HasKey("ID");
 
@@ -105,28 +98,23 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Ime")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Prezime")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("text");
 
                     b.Property<string>("SlikaKorisnika")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Uloga")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("text");
 
                     b.HasKey("ID");
 
@@ -149,10 +137,6 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("KartaID");
-
-                    b.HasIndex("KorisnikID");
-
                     b.ToTable("KorisnikKarta");
                 });
 
@@ -166,13 +150,11 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
 
                     b.Property<string>("DolaznaStanica")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasColumnType("text");
 
                     b.Property<string>("PolaznaStanica")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime>("VremePolaska")
                         .HasColumnType("timestamp with time zone");
@@ -233,46 +215,15 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
 
                     b.Property<string>("Adresa")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Naziv")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                        .HasColumnType("text");
 
                     b.HasKey("ID");
 
                     b.ToTable("Stanice");
-                });
-
-            modelBuilder.Entity("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.KorisnikKarta", b =>
-                {
-                    b.HasOne("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.Karta", "Karta")
-                        .WithMany("KarteKorisnika")
-                        .HasForeignKey("KartaID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.Korisnik", "Korisnik")
-                        .WithMany("KorisnikoveKarte")
-                        .HasForeignKey("KorisnikID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Karta");
-
-                    b.Navigation("Korisnik");
-                });
-
-            modelBuilder.Entity("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.Karta", b =>
-                {
-                    b.Navigation("KarteKorisnika");
-                });
-
-            modelBuilder.Entity("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.Korisnik", b =>
-                {
-                    b.Navigation("KorisnikoveKarte");
                 });
 #pragma warning restore 612, 618
         }

@@ -10,6 +10,5 @@ namespace AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije
         public int ID { get; set; }
         public int RezervacijaID { get; set; }
         public DateTime DatumKupovine { get; set; }
-        public List<KorisnikKarta> KarteKorisnika { get; set; }
     }
 }

@@ -1,1 +1,110 @@
-<p>korisnik-karta works!</p>
+<div class="container" id="main-container">
+  <!-- Dugme za dodavanje nove veze korisnik-karta -->
+  <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#dodajKorisnikKartaModal">Dodaj Novu Vezu</button>
+
+  <!-- Tabela za prikaz postojećih veza korisnik-karta -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID Korisnika</th>
+        <th scope="col">ID Karte</th>
+        <th scope="col">Akcije</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let kk of korisnikKarte; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ kk.korisnikID }}</td>
+        <td>{{ kk.kartaID }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#urediKorisnikKartaModal" (click)="urediKorisnikKarta = kk">Uredi</button>
+          <button class="btn btn-danger btn-sm" (click)="obrisiKorisnikKartu = kk; onObrisiKorisnikKartu()">Obriši</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal za Dodavanje Veze Korisnik-Karta -->
+  <div class="modal fade" id="dodajKorisnikKartaModal" tabindex="-1" role="dialog" aria-labelledby="dodajKorisnikKartaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dodajKorisnikKartaModalLabel">Dodaj Novu Vezu</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addKorisnikKartaForm="ngForm" (ngSubmit)="onDodajKorisnikKartu(addKorisnikKartaForm)">
+            <!-- Forma za dodavanje nove veze -->
+            <div class="form-group">
+              <label for="korisnikId">ID Korisnika</label>
+              <input type="number" class="form-control" id="korisnikID" ngModel name="korisnikID" required>
+            </div>
+            <div class="form-group">
+              <label for="kartaId">ID Karte</label>
+              <input type="number" class="form-control" id="kartaID" ngModel name="kartaID" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary">Dodaj</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal za Uređivanje Veze Korisnik-Karta -->
+  <div class="modal fade" id="urediKorisnikKartaModal" tabindex="-1" role="dialog" aria-labelledby="urediKorisnikKartaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="urediKorisnikKartaModalLabel">Uredi Vezu</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editKorisnikKartaForm="ngForm" (ngSubmit)="onUrediKorisnikKartu(editKorisnikKartaForm)">
+            <!-- Forma za uređivanje veze -->
+            <div class="form-group">
+              <label for="korisnikID">ID Korisnika</label>
+              <input type="number" class="form-control" id="korisnikID" [(ngModel)]="urediKorisnikKarta.korisnikID" name="korisnikID" required>
+            </div>
+            <div class="form-group">
+              <label for="kartaID">ID Karte</label>
+              <input type="number" class="form-control" id="kartaID" [(ngModel)]="urediKorisnikKarta.kartaID" name="kartaID" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary">Uredi</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal za Brisanje Veze Korisnik-Karta -->
+  <div class="modal fade" id="obrisiKorisnikKartaModal" tabindex="-1" role="dialog" aria-labelledby="obrisiKorisnikKartaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="obrisiKorisnikKartaModalLabel">Obriši Vezu</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Da li ste sigurni da želite da obrišete ovu vezu?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ne</button>
+          <button type="button" class="btn btn-danger" (click)="onObrisiKorisnikKartu()" data-bs-dismiss="modal">Da, Obriši</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

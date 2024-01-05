@@ -46,6 +46,12 @@
             <a class="nav-link text-dark" [routerLink]="['/korisnik']">Korisnik</a>
           </li>
 
+          <li class="nav-item"
+              [routerLinkActive]="['link-active']"
+              [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link text-dark" [routerLink]="['/korisnik-karte']">Korisnik Karte</a>
+          </li>
+
         </ul>
         <app-login-menu></app-login-menu>
       </div>

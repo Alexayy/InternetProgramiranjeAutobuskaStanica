@@ -17,6 +17,10 @@ export class KartaService {
     return this.http.get<karta[]>(`${this.apiServerUrl}/Karta`);
   }
 
+  public getKarta(id: number): Observable<karta> {
+    return this.http.get<karta>(`${this.apiServerUrl}/Karta/${id}`);
+  }
+
   public addKarta(karta: karta): Observable<karta> {
     return this.http.post<karta>(`${this.apiServerUrl}/Karta`, karta);
   }

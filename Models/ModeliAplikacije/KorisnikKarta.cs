@@ -10,8 +10,5 @@ namespace AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije
         public int ID { get; set; }
         public int KorisnikID { get; set; }
         public int KartaID { get; set; }
-
-        public Korisnik Korisnik { get; set; }
-        public Karta Karta { get; set; }
     }
 }
