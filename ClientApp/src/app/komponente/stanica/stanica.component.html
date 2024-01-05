@@ -1,1 +1,108 @@
-<p>stanica works!</p>
+<div class="container" id="main-container">
+  <!-- Dugme za dodavanje nove stanice -->
+  <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#dodajStanicaModal">Dodaj Novu Stanicu</button>
+
+  <!-- Tabela za prikaz stanica -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Naziv</th>
+        <th scope="col">Adresa</th>
+        <th scope="col">Akcije</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stanica of stanice; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ stanica.naziv }}</td>
+        <td>{{ stanica.adresa }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#urediStanicaModal" (click)="urediStanica = stanica">Uredi</button>
+          <button class="btn btn-danger btn-sm" (click)="obrisiStanica = stanica; onObrisiStanica()">Obriši</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal za Dodavanje Stanice -->
+  <div class="modal fade" id="dodajStanicaModal" tabindex="-1" role="dialog" aria-labelledby="dodajStanicaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dodajStanicaModalLabel">Dodaj Novu Stanicu</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addStanicaForm="ngForm" (ngSubmit)="onDodajStanica(addStanicaForm)">
+            <div class="form-group">
+              <label for="naziv">Naziv</label>
+              <input type="text" class="form-control" id="naziv" ngModel name="naziv" required>
+            </div>
+            <div class="form-group">
+              <label for="adresa">Adresa</label>
+              <input type="text" class="form-control" id="adresa" ngModel name="adresa" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Dodaj</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal za Uređivanje Stanice -->
+  <div class="modal fade" id="urediStanicaModal" tabindex="-1" role="dialog" aria-labelledby="urediStanicaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="urediStanicaModalLabel">Uredi Stanicu</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editStanicaForm="ngForm" (ngSubmit)="onUrediStanica(editStanicaForm)">
+            <div class="form-group">
+              <label for="urediNaziv">Naziv</label>
+              <input type="text" class="form-control" id="urediNaziv" [(ngModel)]="urediStanica.naziv" name="naziv" required>
+            </div>
+            <div class="form-group">
+              <label for="urediAdresa">Adresa</label>
+              <input type="text" class="form-control" id="urediAdresa" [(ngModel)]="urediStanica.adresa" name="adresa" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Uredi</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal za Brisanje Stanice -->
+  <div class="modal fade" id="obrisiStanicaModal" tabindex="-1" role="dialog" aria-labelledby="obrisiStanicaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="obrisiStanicaModalLabel">Obriši Stanicu</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Da li ste sigurni da želite da obrišete ovu stanicu?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ne</button>
+          <button type="button" class="btn btn-danger" (click)="onObrisiStanica()" data-bs-dismiss="modal">Da, Obriši</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
