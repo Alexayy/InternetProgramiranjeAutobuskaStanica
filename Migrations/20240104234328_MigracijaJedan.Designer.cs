@@ -9,11 +9,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
+namespace AutobuskaStanicaInternetProgramiranje.Migrations
 {
     [DbContext(typeof(AutobuskaStanicaDbContext))]
-    [Migration("20240104214324_Cetvrta Migracija")]
-    partial class CetvrtaMigracija
+    [Migration("20240104234328_MigracijaJedan")]
+    partial class MigracijaJedan
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,6 +60,10 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("SlikaAutobusa")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("ID");
 
                     b.ToTable("Autobusi");
@@ -101,6 +105,10 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
                         .HasColumnType("text");
 
                     b.Property<string>("Prezime")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("SlikaKorisnika")
                         .IsRequired()
                         .HasColumnType("text");
 

@@ -16,7 +16,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Auxiliary
                 .RuleFor(a => a.BrojTelefonaKompanije, f => f.Phone.PhoneNumber())
                 .RuleFor(a => a.EmailKompanije, f => f.Internet.Email())
                 .RuleFor(a => a.SajtKompanije, f => f.Internet.Url())
-                .RuleFor(a => a.SlikaAutobusa, f => f.Image.LoremPixelUrl(width: 100, height:100, category: "cars"));
+                .RuleFor(a => a.SlikaAutobusa, f => f.Image.People());
 
             return autobusFaker.Generate(count);
         }
@@ -31,7 +31,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Auxiliary
                 .RuleFor(k => k.Prezime, f => f.Name.LastName())
                 .RuleFor(k => k.Email, f => f.Internet.Email())
                 .RuleFor(k => k.Uloga, f => f.PickRandom(uloge))
-                .RuleFor(k => k.SlikaKorisnika, f => f.Image.LoremPixelUrl(width: 100, height: 100, category: "people"));
+                .RuleFor(k => k.SlikaKorisnika, f => f.Image.Technics());
 
             return korisnikFaker.Generate(count);
         }

@@ -1,5 +1,5 @@
 export interface korisnik {
-  id: number;
+  id: 0;
   ime: string;
   prezime: string;
   email: string;

@@ -3,20 +3,17 @@ using System;
 using AutobuskaStanicaInternetProgramiranje.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
+namespace AutobuskaStanicaInternetProgramiranje.Migrations
 {
     [DbContext(typeof(AutobuskaStanicaDbContext))]
-    [Migration("20240104220036_Peta Migracija")]
-    partial class PetaMigracija
+    partial class AutobuskaStanicaDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

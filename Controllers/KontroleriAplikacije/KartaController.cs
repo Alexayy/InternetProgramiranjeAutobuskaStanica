@@ -36,11 +36,8 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
         public async Task<ActionResult<Karta>> Post(Karta karta)
         {
             Console.WriteLine($"Dodavanje nove karte: RezervacijaID = {karta.RezervacijaID}, DatumKupovine = {karta.DatumKupovine}");
-
             karta.DatumKupovine = DateTime.SpecifyKind(karta.DatumKupovine, DateTimeKind.Utc);
-
             await _kartaService.CreateKartaAsync(karta);
-
             return CreatedAtAction(nameof(Get), new { id = karta.ID }, karta);
         }
 

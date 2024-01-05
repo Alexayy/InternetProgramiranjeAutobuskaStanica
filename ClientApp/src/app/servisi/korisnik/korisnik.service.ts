@@ -25,10 +25,12 @@ export class KorisnikService {
   }
 
   public updateKorisnik(korisnik: korisnik): Observable<korisnik> {
-    return this.http.put<korisnik>(`${this.apiServiceUrl}/Korisnik`, korisnik);
+    console.log(`${this.apiServiceUrl}/Korisnik/${korisnik.id}`);
+    return this.http.put<korisnik>(`${this.apiServiceUrl}/Korisnik/${korisnik.id}`, korisnik);
   }
 
   public deleteKorisnik(id: number): Observable<void> {
+    
     return this.http.delete<void>(`${this.apiServiceUrl}/Korisnik/${id}`);
   }
 

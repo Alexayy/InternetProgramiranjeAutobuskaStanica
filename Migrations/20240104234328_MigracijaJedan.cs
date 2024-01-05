@@ -4,10 +4,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
+namespace AutobuskaStanicaInternetProgramiranje.Migrations
 {
     /// <inheritdoc />
-    public partial class ImeMigracijeZaAutobuskuStanicu : Migration
+    public partial class MigracijaJedan : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -24,7 +24,8 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
                     SedisteKompanije = table.Column<string>(type: "text", nullable: false),
                     BrojTelefonaKompanije = table.Column<string>(type: "text", nullable: false),
                     EmailKompanije = table.Column<string>(type: "text", nullable: false),
-                    SajtKompanije = table.Column<string>(type: "text", nullable: false)
+                    SajtKompanije = table.Column<string>(type: "text", nullable: false),
+                    SlikaAutobusa = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -53,7 +54,9 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Ime = table.Column<string>(type: "text", nullable: false),
                     Prezime = table.Column<string>(type: "text", nullable: false),
-                    Email = table.Column<string>(type: "text", nullable: false)
+                    Email = table.Column<string>(type: "text", nullable: false),
+                    Uloga = table.Column<string>(type: "text", nullable: false),
+                    SlikaKorisnika = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {

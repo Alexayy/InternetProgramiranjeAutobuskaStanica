@@ -1,20 +1,6 @@
 <div class="container mt-3">
-  <!-- Forma za dodavanje novog korisnika -->
-  <form (ngSubmit)="dodajNovogKorisnika(noviKorisnikForm.value)" #noviKorisnikForm="ngForm">
-    <div class="mb-3">
-      <label for="ime" class="form-label">Ime</label>
-      <input type="text" class="form-control" id="ime" name="ime" ngModel required>
-    </div>
-    <div class="mb-3">
-      <label for="prezime" class="form-label">Prezime</label>
-      <input type="text" class="form-control" id="prezime" name="prezime" ngModel required>
-    </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email" name="email" ngModel required>
-    </div>
-    <button type="submit" class="btn btn-primary">Dodaj Korisnika</button>
-  </form>
+  <!-- Dugme za otvaranje modala za dodavanje korisnika -->
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#dodajKorisnikaModal">Dodaj Novog Korisnika</button>
 
   <!-- Tabela za prikaz korisnika -->
   <table class="table mt-4">
@@ -30,17 +16,122 @@
     </thead>
     <tbody>
       <tr *ngFor="let korisnik of korisnici; let i = index">
-        <th scope="row">{{i + 1}}</th>
-        <th scope="row">{{i + 1}}</th>
+        <th scope="row">{{ i + 1 }}</th>
         <td><img [src]="korisnik.slikaKorisnika" alt="Slika korisnika" height="50"></td>
-        <td>{{korisnik.ime}}</td>
-        <td>{{korisnik.prezime}}</td>
-        <td>{{korisnik.email}}</td>
+        <td>{{ korisnik.ime }}</td>
+        <td>{{ korisnik.prezime }}</td>
+        <td>{{ korisnik.email }}</td>
         <td>
-          <button class="btn btn-success btn-sm" (click)="urediPostojecegKorisnika(korisnik)">Uredi</button>
-          <button class="btn btn-danger btn-sm" (click)="obrisiKorisnika(korisnik.id)">Obriši</button>
+          <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#urediKorisnikaModal" (click)="urediKorisnika = korisnik">Uredi</button>
+          <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#obrisiKorisnikaModal" (click)="obrisiKorisnika = korisnik">Obriši</button>
         </td>
       </tr>
     </tbody>
   </table>
+
+  <!-- Modal za Dodavanje Korisnika -->
+  <div class="modal fade" id="dodajKorisnikaModal" tabindex="-1" role="dialog" aria-labelledby="dodajKorisnikaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dodajKorisnikaModalLabel">Dodaj Korisnika</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #addKorisnikForm="ngForm" (ngSubmit)="onDodajKorisnika(addKorisnikForm)">
+            <div class="form-group">
+              <label for="ime">Ime</label>
+              <input type="text" class="form-control" id="ime" name="ime" [(ngModel)]="urediKorisnika.ime" required>
+            </div>
+            <div class="form-group">
+              <label for="prezime">Prezime</label>
+              <input type="text" class="form-control" id="prezime" name="prezime" [(ngModel)]="urediKorisnika.prezime" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="urediKorisnika.email" required>
+            </div>
+            <div class="form-group">
+              <label for="uloga">Uloga</label>
+              <input type="uloga" class="form-control" id="uloga" name="uloga" [(ngModel)]="urediKorisnika.uloga" required>
+            </div>
+            <div class="form-group">
+              <label for="slikaKorisnika">Slika Korisnika</label>
+              <input type="slikaKorisnika" class="form-control" id="slikaKorisnika" name="slikaKorisnika" [(ngModel)]="urediKorisnika.slikaKorisnika" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary">Sačuvaj</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal za Uređivanje Korisnika -->
+  <div class="modal fade" id="urediKorisnikaModal" tabindex="-1" role="dialog" aria-labelledby="urediKorisnikaModalLabel" aria-hidden="true" #urediModal>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="urediKorisnikaModalLabel">Uredi Korisnika</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm" (ngSubmit)="onUrediKorisnika(editForm)">
+            <div class="form-group">
+              <label for="ime">ID</label>
+              <input type="text" class="form-control" id="id" name="id" [(ngModel)]="urediKorisnika.id" required disabled>
+            </div>
+            <div class="form-group">
+              <label for="ime">Ime</label>
+              <input type="text" class="form-control" id="ime" name="ime" [(ngModel)]="urediKorisnika.ime" required>
+            </div>
+            <div class="form-group">
+              <label for="prezime">Prezime</label>
+              <input type="text" class="form-control" id="prezime" name="prezime" [(ngModel)]="urediKorisnika.prezime" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="urediKorisnika.email" required>
+            </div>
+            <div class="form-group">
+              <label for="uloga">Uloga</label>
+              <input type="uloga" class="form-control" id="uloga" name="uloga" [(ngModel)]="urediKorisnika.uloga" required>
+            </div>
+            <div class="form-group">
+              <label for="slikaKorisnika">Slika Korisnika</label>
+              <input type="slikaKorisnika" class="form-control" id="slikaKorisnika" name="slikaKorisnika" [(ngModel)]="urediKorisnika.slikaKorisnika" required>
+            </div>
+            <div class="modal-footer">
+              <button type="button" (click)="onCloseModal" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Sacuvaj</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal za Brisanje Korisnika -->
+  <div class="modal fade" id="obrisiKorisnikaModal" tabindex="-1" role="dialog" aria-labelledby="obrisiKorisnikaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="obrisiKorisnikaModalLabel">Obriši Korisnika</h5>
+        </div>
+        <div class="modal-body">
+          <p>Da li ste sigurni da želite da obrišete korisnika {{ obrisiKorisnika?.ime }} {{ obrisiKorisnika?.prezime }}?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ne</button>
+          <button type="button" class="btn btn-danger" (click)="onObrisiKorisnika()" data-bs-dismiss="modal">Da</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
