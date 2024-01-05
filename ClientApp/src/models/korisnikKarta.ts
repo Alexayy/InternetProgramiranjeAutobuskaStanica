@@ -5,6 +5,4 @@ export interface korisnikKarta {
   id: number;
   korisnikID: number;
   kartaID: number;
-  //korisnik?: korisnik; 
-  //karta?: karta;
 }

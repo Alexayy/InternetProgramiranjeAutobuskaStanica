@@ -4,6 +4,7 @@ import { KorisnikKartaService } from '../../servisi/korisnik-karta/korisnik-kart
 import { NgForm } from '@angular/forms';
 import { KorisnikService } from '../../servisi/korisnik/korisnik.service';
 import { KartaService } from '../../servisi/karta/karta.service';
+import { KorisnikKartaExtended } from '../../../models/korisnikKartaExtended';
 
 @Component({
   selector: 'app-korisnik-karta',
@@ -16,6 +17,7 @@ export class KorisnikKartaComponent implements OnInit {
     id: 0, korisnikID: 0, kartaID: 0
   };
   public obrisiKorisnikKartu: korisnikKarta | undefined;
+  public korisnikKarteExtended: KorisnikKartaExtended[] = [];
 
   constructor(private korisnikKartaService: KorisnikKartaService,
     private korisnikService: KorisnikService, private kartaService: KartaService) { }
@@ -23,18 +25,30 @@ export class KorisnikKartaComponent implements OnInit {
   ngOnInit(): void {
     this.getKorisnikKarte();
   }
-
+ 
   public getKorisnikKarte(): void {
     this.korisnikKartaService.getKorisnikKarte().subscribe({
       next: (response) => {
-        this.korisnikKarte = response;
-        console.log(response);
+        response.forEach(kk => {
+          this.korisnikService.getKorisnik(kk.korisnikID).subscribe(korisnik => {
+            this.kartaService.getKarta(kk.kartaID).subscribe(karta => {
+              let extendedKorisnikKarta: KorisnikKartaExtended = {
+                ...kk,
+                korisnikEmail: korisnik.email,
+                korisnikIme: korisnik.ime,
+                rezervacijaID: karta.rezervacijaID
+              };
+              this.korisnikKarteExtended.push(extendedKorisnikKarta);
+            });
+          });
+        });
       },
       error: (err) => {
         console.error('Greška prilikom dohvatanja veza korisnik-karta', err);
       }
     });
   }
+
   
   public onDodajKorisnikKartu(addForm: NgForm): void {
     if (addForm.valid) {

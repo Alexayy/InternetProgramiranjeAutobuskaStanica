@@ -7,16 +7,18 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">ID Korisnika</th>
-        <th scope="col">ID Karte</th>
+        <th scope="col">Ime Korisnika</th>
+        <th scope="col">Email Korisnika</th>
+        <th scope="col">ID Rezervacije</th>
         <th scope="col">Akcije</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let kk of korisnikKarte; let i = index">
+      <tr *ngFor="let kk of korisnikKarteExtended; let i = index">
         <th scope="row">{{ i + 1 }}</th>
-        <td>{{ kk.korisnikID }}</td>
-        <td>{{ kk.kartaID }}</td>
+        <td>{{ kk.korisnikIme }}</td>
+        <td>{{ kk.korisnikEmail }}</td>
+        <td>{{ kk.rezervacijaID }}</td>
         <td>
           <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#urediKorisnikKartaModal" (click)="urediKorisnikKarta = kk">Uredi</button>
           <button class="btn btn-danger btn-sm" (click)="obrisiKorisnikKartu = kk; onObrisiKorisnikKartu()">Obriši</button>
