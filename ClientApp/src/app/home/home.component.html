@@ -1,33 +1,54 @@
-<div class="container">
-  <form #pretragaForm="ngForm" (ngSubmit)="pretraziLinije(pretragaForm)">
-    <div class="form-group">
-      <label for="polazna">Polazna stanica:</label>
-      <input type="text" id="polazna" name="polazna" ngModel class="form-control">
-    </div>
-    <div class="form-group">
-      <label for="dolazna">Dolazna stanica:</label>
-      <input type="text" id="dolazna" name="dolazna" ngModel class="form-control">
-    </div>
-    <button type="submit" class="btn btn-primary">Pretraži</button>
-    <button type="button" class="btn btn-secondary" (click)="resetujPretragu()">Resetuj</button>
-  </form>
-
-  <div *ngIf="linije.length > 0">
-    <h3 *ngIf="isPretraga">Rezultati pretrage</h3>
-    <h3 *ngIf="!isPretraga">Sve linije</h3>
-    <div *ngIf="linije.length === 0">
-      <p>{{ porukaNemaRezultata }}</p>
-    </div>
-
-    <ul>
-      <li *ngFor="let linija of linije">
-        {{ linija.polaznaStanica }} - {{ linija.dolaznaStanica }}
-     
-      </li>
-    </ul>
+<div class="container mt-5">
+  <div class="jumbotron text-center">
+    <h1 class="display-4">Dobrodošli na portal za rezervaciju autobuskih karata</h1>
+    <p class="lead">Pronađite i rezervišite svoju sledeću autobusku kartu online!</p>
+    <hr class="my-4">
+    <img src="https://busticket4.me/db_assets/images/stanice_galerija/beograd-6-740x493.jpg" alt="Autobuska Stanica" class="img-fluid">
   </div>
 
-  <div *ngIf="linije.length === 0">
+  <div class="card shadow-sm mb-4">
+    <div class="card-body">
+      <form #pretragaForm="ngForm" (ngSubmit)="pretraziLinije(pretragaForm)">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="polazna">Polazna stanica:</label>
+            <input type="text" id="polazna" name="polazna" ngModel class="form-control">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="dolazna">Dolazna stanica:</label>
+            <input type="text" id="dolazna" name="dolazna" ngModel class="form-control">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Pretraži</button>
+        <button type="button" class="btn btn-secondary" (click)="resetujPretragu()">Resetuj</button>
+      </form>
+    </div>
+  </div>
+
+  <div *ngIf="linije.length > 0">
+    <h3 class="mb-3" *ngIf="isPretraga">Rezultati pretrage</h3>
+    <h3 class="mb-3" *ngIf="!isPretraga">Sve linije</h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Vreme polaska</th>
+          <th>Od</th>
+          <th>Do</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let linija of linije">
+          <td>{{ linija.vremePolaska | date:'short' }}</td>
+          <td>{{ linija.polaznaStanica }}</td>
+          <td>{{ linija.dolaznaStanica }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div *ngIf="linije.length === 0" class="alert alert-info mt-3">
     <p>Nema rezultata za prikaz.</p>
   </div>
 </div>
