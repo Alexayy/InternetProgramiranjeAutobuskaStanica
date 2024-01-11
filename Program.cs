@@ -12,10 +12,14 @@ using System.Text;
 using AutobuskaStanicaInternetProgramiranje.Auxiliary;
 using Duende.IdentityServer.Validation;
 using AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije;
+using Faker;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var configuration = builder.Configuration;
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 builder.Services.AddAuthentication(options =>
 {
@@ -35,10 +39,12 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
 })
-.AddGoogle(googleOptions =>
+.AddGoogle(options =>
 {
-    googleOptions.ClientId = builder.Configuration["Authentication:Google:ClientId"];
-    googleOptions.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+    IConfigurationSection googleAuthNSection =
+    configuration.GetSection("Authentication:Google");
+    options.ClientId = googleAuthNSection["ClientId"];
+    options.ClientSecret = googleAuthNSection["ClientSecret"];
 });
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
@@ -66,9 +72,6 @@ builder.Services.AddIdentityServer()
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
-
-builder.Services.AddControllersWithViews();
-builder.Services.AddRazorPages();
 
 builder.Services.AddCors(options => { 
     options.AddDefaultPolicy(builder => { 

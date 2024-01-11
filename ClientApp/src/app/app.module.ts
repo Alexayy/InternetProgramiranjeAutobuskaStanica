@@ -17,7 +17,8 @@ import { LinijaComponent } from './komponente/linija/linija.component';
 import { RezervacijaComponent } from './komponente/rezervacija/rezervacija.component';
 import { StajalisteComponent } from './komponente/stajaliste/stajaliste.component';
 import { StanicaComponent } from './komponente/stanica/stanica.component';
-import * as AnythingThatIsNotDollarSignOrSymbolOrjQuery from "jquery"
+import * as AnythingThatIsNotDollarSignOrSymbolOrjQuery from "jquery";
+import { SignInGoogleComponent } from './sign-in-google/sign-in-google.component'
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import * as AnythingThatIsNotDollarSignOrSymbolOrjQuery from "jquery"
     RezervacijaComponent,
     StajalisteComponent,
     StanicaComponent,
+    SignInGoogleComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -48,7 +50,7 @@ import * as AnythingThatIsNotDollarSignOrSymbolOrjQuery from "jquery"
       { path: 'rezervacija', component: RezervacijaComponent },
       { path: 'stanica', component: StanicaComponent },
       { path: 'stajaliste', component: StajalisteComponent },
-      { path: 'stajaliste', component: StajalisteComponent },
+      { path: 'signin-google', component: SignInGoogleComponent },
     ])
   ],
   providers: [
