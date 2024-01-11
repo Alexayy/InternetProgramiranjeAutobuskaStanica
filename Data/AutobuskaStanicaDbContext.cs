@@ -10,7 +10,6 @@ namespace AutobuskaStanicaInternetProgramiranje.Data
         {
         }
 
-        public DbSet<Korisnik> Korisnici { get; set; }
         public DbSet<Autobus> Autobusi { get; set; }
         public DbSet<Rezervacija> Rezervacije { get; set; }
         public DbSet<Karta> Karte { get; set; }

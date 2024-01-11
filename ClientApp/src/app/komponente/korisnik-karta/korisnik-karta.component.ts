@@ -14,7 +14,7 @@ import { KorisnikKartaExtended } from '../../../models/korisnikKartaExtended';
 export class KorisnikKartaComponent implements OnInit {
   public korisnikKarte: korisnikKarta[] = [];
   public urediKorisnikKarta: korisnikKarta = {
-    id: 0, korisnikID: 0, kartaID: 0
+    id: 0, korisnikID: '', kartaID: 0
   };
   public obrisiKorisnikKartu: korisnikKarta | undefined;
   public korisnikKarteExtended: KorisnikKartaExtended[] = [];
@@ -35,7 +35,7 @@ export class KorisnikKartaComponent implements OnInit {
               let extendedKorisnikKarta: KorisnikKartaExtended = {
                 ...kk,
                 korisnikEmail: korisnik.email,
-                korisnikIme: korisnik.ime,
+                korisnikIme: korisnik.userName,
                 rezervacijaID: karta.rezervacijaID
               };
               this.korisnikKarteExtended.push(extendedKorisnikKarta);

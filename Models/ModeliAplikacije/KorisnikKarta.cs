@@ -8,7 +8,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
-        public int KorisnikID { get; set; }
+        public string KorisnikID { get; set; }
         public int KartaID { get; set; }
     }
 }

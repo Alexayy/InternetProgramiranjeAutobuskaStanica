@@ -4,10 +4,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AutobuskaStanicaInternetProgramiranje.Migrations
+namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
 {
     /// <inheritdoc />
-    public partial class Migracija : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -47,29 +47,12 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Korisnici",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Ime = table.Column<string>(type: "text", nullable: false),
-                    Prezime = table.Column<string>(type: "text", nullable: false),
-                    Email = table.Column<string>(type: "text", nullable: false),
-                    Uloga = table.Column<string>(type: "text", nullable: false),
-                    SlikaKorisnika = table.Column<string>(type: "text", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Korisnici", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "KorisnikKarta",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    KorisnikID = table.Column<int>(type: "integer", nullable: false),
+                    KorisnikID = table.Column<string>(type: "text", nullable: false),
                     KartaID = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -100,7 +83,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     LinijaID = table.Column<int>(type: "integer", nullable: false),
                     SedisteID = table.Column<int>(type: "integer", nullable: false),
-                    KorisnikID = table.Column<int>(type: "integer", nullable: false)
+                    KorisnikID = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -144,9 +127,6 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
 
             migrationBuilder.DropTable(
                 name: "Karte");
-
-            migrationBuilder.DropTable(
-                name: "Korisnici");
 
             migrationBuilder.DropTable(
                 name: "KorisnikKarta");

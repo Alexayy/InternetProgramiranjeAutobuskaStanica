@@ -7,9 +7,9 @@ namespace AutobuskaStanicaInternetProgramiranje.Services
 {
     public class KorisnikService : IKorisnikService
     {
-        private readonly AutobuskaStanicaDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public KorisnikService(AutobuskaStanicaDbContext context)
+        public KorisnikService(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -19,7 +19,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Services
             return await _context.Korisnici.ToListAsync();
         }
 
-        public async Task<Korisnik> GetKorisnikAsync(int id)
+        public async Task<Korisnik> GetKorisnikAsync(string id)
         {
             return await _context.Korisnici.FindAsync(id);
         }
@@ -36,9 +36,10 @@ namespace AutobuskaStanicaInternetProgramiranje.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteKorisnikAsync(int id)
+        public async Task DeleteKorisnikAsync(string id)
         {
             var korisnik = await _context.Korisnici.FindAsync(id);
+
             if (korisnik != null)
             {
                 _context.Korisnici.Remove(korisnik);

@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using AutobuskaStanicaInternetProgramiranje.Auxiliary;
 using Duende.IdentityServer.Validation;
+using AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -57,11 +58,11 @@ builder.Services.AddScoped<IRezervacijaService, RezervacijaService>();
 builder.Services.AddScoped<IStajalisteService, StajalisteService>();
 builder.Services.AddScoped<IStanicaService, StanicaService>();
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<Korisnik>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddIdentityServer()
-    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+    .AddApiAuthorization<Korisnik, ApplicationDbContext>();
 
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
@@ -94,7 +95,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthentication();
-//app.UseIdentityServer();
+app.UseIdentityServer();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -143,7 +144,6 @@ void GenerateFakeData(AutobuskaStanicaDbContext context)
     var korisnikKarte = generator.GenerateFakeKorisnikKarte(400, korisnici, karte);
 
     // Dodavanje generisanih podataka u bazu
-    context.Korisnici.AddRange(korisnici);
     context.Autobusi.AddRange(autobusi);
     context.Linije.AddRange(linije);
     context.Stanice.AddRange(stanice);

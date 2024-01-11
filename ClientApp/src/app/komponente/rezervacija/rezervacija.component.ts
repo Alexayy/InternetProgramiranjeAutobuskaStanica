@@ -15,7 +15,7 @@ import { Modal } from 'bootstrap';
 export class RezervacijaComponent implements OnInit {
   public rezervacije: rezervacija[] = [];
   public urediRezervaciju: rezervacija = {
-    id: 0, linijaID: 0, sedisteID: 0, korisnikID: 0
+    id: 0, linijaID: 0, sedisteID: 0, korisnikID: ''
   };
   public obrisiRezervaciju: rezervacija | undefined;
   public rezervacijeExtended: RezervacijaExtended[] = [];
@@ -40,7 +40,7 @@ export class RezervacijaComponent implements OnInit {
                 linijaPolaznaStanica: linija.polaznaStanica,
                 linijaDolaznaStanica: linija.dolaznaStanica,
                 vremePolaska: linija.vremePolaska,
-                korisnikIme: korisnik.ime,
+                korisnikIme: korisnik.userName,
                 korisnikPrezime: korisnik.prezime,
                 korisnikEmail: korisnik.email
               };

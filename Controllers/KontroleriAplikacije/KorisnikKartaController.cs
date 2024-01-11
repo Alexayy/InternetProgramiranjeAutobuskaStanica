@@ -12,12 +12,15 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
     {
         private readonly IKorisnikKartaService _korisnikKartaService;
         private readonly AutobuskaStanicaDbContext _context;
+        private readonly ApplicationDbContext _appDbContext;
 
         public KorisnikKartaController(IKorisnikKartaService korisnikKartaService,
-            AutobuskaStanicaDbContext context)
+            AutobuskaStanicaDbContext context,
+            ApplicationDbContext appDbContext)
         {
             _korisnikKartaService = korisnikKartaService;
             _context = context;
+            _appDbContext = appDbContext;
         }
 
         [HttpGet]
@@ -39,7 +42,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] KorisnikKarta model)
         {
-            var korisnik = await _context.Korisnici.FindAsync(model.KorisnikID);
+            var korisnik = await _appDbContext.Korisnici.FindAsync(model.KorisnikID);
             var karta = await _context.Karte.FindAsync(model.KartaID);
 
             if (korisnik == null || karta == null)

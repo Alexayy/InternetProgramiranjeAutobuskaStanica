@@ -6,9 +6,9 @@ namespace AutobuskaStanicaInternetProgramiranje.Repository
     public interface IKorisnikService
     {
         Task<IEnumerable<Korisnik>> GetKorisniciAsync();
-        Task<Korisnik> GetKorisnikAsync(int id);
+        Task<Korisnik> GetKorisnikAsync(string id);
         Task CreateKorisnikAsync(Korisnik korisnik);
         Task UpdateKorisnikAsync(Korisnik korisnik);
-        Task DeleteKorisnikAsync(int id);
+        Task DeleteKorisnikAsync(string id);
     }
 }

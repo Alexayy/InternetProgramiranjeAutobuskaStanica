@@ -10,6 +10,6 @@ namespace AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije
         public int ID { get; set; }
         public int LinijaID { get; set; }
         public int SedisteID { get; set; }
-        public int KorisnikID { get; set; }
+        public string KorisnikID { get; set; }
     }
 }

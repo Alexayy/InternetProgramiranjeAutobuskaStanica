@@ -1,8 +1,8 @@
 import { karta } from "./karta";
-import { korisnik } from "./korisnik";
+import { Korisnik } from "./korisnik";
 
 export interface korisnikKarta {
   id: number;
-  korisnikID: number;
+  korisnikID: string;
   kartaID: number;
 }

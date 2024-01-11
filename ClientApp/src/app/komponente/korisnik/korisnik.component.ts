@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { korisnik } from '../../../models/korisnik';
 import { KorisnikService } from '../../servisi/korisnik/korisnik.service';
 import { NgForm } from '@angular/forms';
 import { Modal } from 'bootstrap';
+import { Korisnik } from '../../../models/korisnik';
 
 @Component({
   selector: 'app-korisnik',
@@ -12,9 +12,9 @@ import { Modal } from 'bootstrap';
 export class KorisnikComponent implements OnInit {
   @ViewChild('urediModal') urediModal!: ElementRef;
 
-  public korisnici: korisnik[] = [];
-  public urediKorisnika: korisnik = { id: 0, email: '', ime: '', prezime: '', uloga: "korisnik", slikaKorisnika: '' };
-  public obrisiKorisnika: korisnik | null = null;
+  public korisnici: Korisnik[] = [];
+  public urediKorisnika: Korisnik = { id: '', email: '', userName: '', prezime: '', uloga: "korisnik", slikaKorisnika: '', concurrencyStamp: '' };
+  public obrisiKorisnika: Korisnik | null = null;
 
   constructor(private korisnikServis: KorisnikService) { }
 
@@ -58,13 +58,13 @@ export class KorisnikComponent implements OnInit {
 
   public onUrediKorisnika(editForm: NgForm): void {
     // Proveravamo da li forma ima validne podatke
-    console.log("Kakva je forma? " + editForm.value);
+    console.log("Kakva je forma? ", editForm.value, ", sa ID: ", editForm.value.id);
 
     if (editForm.valid) {
-      const updatedKorisnik = { id: this.urediKorisnika.id, ...editForm.value, korisnikoveKarte: [] };
+      const updatedKorisnik = { ...editForm.value };
 
       if (updatedKorisnik && updatedKorisnik.id) {
-        this.korisnikServis.updateKorisnik(updatedKorisnik).subscribe({
+        this.korisnikServis.updateKorisnik(editForm.value).subscribe({
           next: (response) => {
             console.log("Korisnik uspešno ažuriran", response);
             this.getKorisnike();
@@ -94,7 +94,7 @@ export class KorisnikComponent implements OnInit {
     }
   }
 
-  public onOpenModal(mode: string, korisnik?: korisnik): void {
+  public onOpenModal(mode: string, korisnik?: Korisnik): void {
 
     var temp = document.getElementById('main-container') as HTMLElement;
     const myModal = new Modal(temp);

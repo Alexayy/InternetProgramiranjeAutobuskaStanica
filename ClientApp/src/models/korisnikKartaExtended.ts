@@ -1,6 +1,6 @@
 export interface KorisnikKartaExtended {
   id: number;
-  korisnikID: number;
+  korisnikID: string;
   kartaID: number;
   korisnikEmail: string;
   korisnikIme: string;

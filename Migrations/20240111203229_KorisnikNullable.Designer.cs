@@ -3,17 +3,20 @@ using System;
 using AutobuskaStanicaInternetProgramiranje.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AutobuskaStanicaInternetProgramiranje.Migrations.ApplicationDb
+namespace AutobuskaStanicaInternetProgramiranje.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240111203229_KorisnikNullable")]
+    partial class KorisnikNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,7 +25,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.ApplicationDb
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("AutobuskaStanicaInternetProgramiranje.Models.ApplicationUser", b =>
+            modelBuilder.Entity("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.Korisnik", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -64,11 +67,20 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.ApplicationDb
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
 
+                    b.Property<string>("Prezime")
+                        .HasColumnType("text");
+
                     b.Property<string>("SecurityStamp")
+                        .HasColumnType("text");
+
+                    b.Property<string>("SlikaKorisnika")
                         .HasColumnType("text");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("Uloga")
+                        .HasColumnType("text");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
@@ -374,7 +386,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.ApplicationDb
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("AutobuskaStanicaInternetProgramiranje.Models.ApplicationUser", null)
+                    b.HasOne("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.Korisnik", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -383,7 +395,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.ApplicationDb
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("AutobuskaStanicaInternetProgramiranje.Models.ApplicationUser", null)
+                    b.HasOne("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.Korisnik", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -398,7 +410,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.ApplicationDb
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AutobuskaStanicaInternetProgramiranje.Models.ApplicationUser", null)
+                    b.HasOne("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.Korisnik", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -407,7 +419,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.ApplicationDb
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("AutobuskaStanicaInternetProgramiranje.Models.ApplicationUser", null)
+                    b.HasOne("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.Korisnik", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -54,6 +54,7 @@
       <Folder Include="ClientApp\src\app\servisi\karta\" />
       <Folder Include="Data\Migrations\" />
       <Folder Include="Migrations\" />
+      <Folder Include="Migrations\ApplicationDb\" />
       <Folder Include="Migrations\AutobuskaStanicaDb\" />
     </ItemGroup>
     <ItemGroup>

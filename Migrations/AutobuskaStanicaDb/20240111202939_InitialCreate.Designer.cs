@@ -3,17 +3,20 @@ using System;
 using AutobuskaStanicaInternetProgramiranje.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AutobuskaStanicaInternetProgramiranje.Migrations
+namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
 {
     [DbContext(typeof(AutobuskaStanicaDbContext))]
-    partial class AutobuskaStanicaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240111202939_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,39 +88,6 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
                     b.ToTable("Karte");
                 });
 
-            modelBuilder.Entity("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.Korisnik", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Ime")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Prezime")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("SlikaKorisnika")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Uloga")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Korisnici");
-                });
-
             modelBuilder.Entity("AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije.KorisnikKarta", b =>
                 {
                     b.Property<int>("ID")
@@ -129,8 +99,9 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
                     b.Property<int>("KartaID")
                         .HasColumnType("integer");
 
-                    b.Property<int>("KorisnikID")
-                        .HasColumnType("integer");
+                    b.Property<string>("KorisnikID")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("ID");
 
@@ -169,8 +140,9 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("KorisnikID")
-                        .HasColumnType("integer");
+                    b.Property<string>("KorisnikID")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("LinijaID")
                         .HasColumnType("integer");

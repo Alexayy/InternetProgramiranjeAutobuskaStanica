@@ -4,10 +4,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace AutobuskaStanicaInternetProgramiranje.Migrations.ApplicationDb
+namespace AutobuskaStanicaInternetProgramiranje.Migrations
 {
     /// <inheritdoc />
-    public partial class ResetDb : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,6 +31,9 @@ namespace AutobuskaStanicaInternetProgramiranje.Migrations.ApplicationDb
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
+                    Prezime = table.Column<string>(type: "text", nullable: false),
+                    Uloga = table.Column<string>(type: "text", nullable: false),
+                    SlikaKorisnika = table.Column<string>(type: "text", nullable: false),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
