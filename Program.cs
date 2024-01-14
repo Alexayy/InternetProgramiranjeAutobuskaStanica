@@ -13,6 +13,9 @@ using AutobuskaStanicaInternetProgramiranje.Auxiliary;
 using Duende.IdentityServer.Validation;
 using AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije;
 using Faker;
+using Microsoft.AspNetCore.Authentication.Google;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -104,6 +107,50 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
+
+var userManager = app.Services.CreateScope().ServiceProvider.GetRequiredService<UserManager<Korisnik>>();
+var conf = app.Services.GetRequiredService<IConfiguration>();
+
+app.MapGet("/signin-google", context =>
+{
+    var properties = new AuthenticationProperties { RedirectUri = "/signin-google-callback" };
+    return context.ChallengeAsync(GoogleDefaults.AuthenticationScheme, properties);
+});
+
+app.MapGet("/signin-google-callback", async context =>
+{
+    var result = await context.AuthenticateAsync(GoogleDefaults.AuthenticationScheme);
+    var claims = result.Principal.Identities.FirstOrDefault().Claims;
+    var accessToken = result.Properties.GetTokenValue("access_token");
+
+    var email = claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+    var name = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+
+    var user = await userManager.FindByEmailAsync(email);
+    if (user == null)
+    {
+        user = new Korisnik { UserName = email, Email = email };
+        await userManager.CreateAsync(user);
+    }
+
+    var tokenHandler = new JwtSecurityTokenHandler();
+    var key = Encoding.ASCII.GetBytes(configuration["Jwt:Key"]);
+    var tokenDescriptor = new SecurityTokenDescriptor
+    {
+        Subject = new ClaimsIdentity(new Claim[]
+        {
+            new Claim(ClaimTypes.Name, user.Id.ToString())
+        }),
+        Expires = DateTime.UtcNow.AddDays(7),
+        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+    };
+    var token = tokenHandler.CreateToken(tokenDescriptor);
+    var jwtToken = tokenHandler.WriteToken(token);
+
+    context.Response.Redirect($"https://localhost:4200/your-redirect-path?token={jwtToken}");
+});
+
+
 app.MapRazorPages();
 
 app.MapFallbackToFile("index.html");
