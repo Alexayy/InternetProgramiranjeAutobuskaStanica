@@ -58,6 +58,12 @@ export class RezervacijaComponent implements OnInit {
   }
 
   public onDodajRezervaciju(addForm: NgForm): void {
+    console.log(addForm.value);
+
+    const korisnikId = addForm.value.korisnikID;
+    const linijaId = addForm.value.linijaID;
+    const sedisteId = addForm.value.sedisteID;
+
     if (addForm.valid) {
       let novaRezervacija = {
         ...addForm.value

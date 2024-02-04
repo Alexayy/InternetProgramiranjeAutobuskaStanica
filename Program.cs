@@ -183,7 +183,7 @@ void GenerateFakeData(AutobuskaStanicaDbContext context)
 {
     var generator = new FakeDataGenerator();
 
-    // Generisanje lažnih podataka za sve entitete
+    // Generisanje laï¿½nih podataka za sve entitete
     var korisnici = generator.GenerateFakeKorisnici(100);
     var autobusi = generator.GenerateFakeAutobusi(150);
     var linije = generator.GenerateFakeLinije(200);

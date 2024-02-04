@@ -52,12 +52,12 @@ export class KorisnikKartaComponent implements OnInit {
   
   public onDodajKorisnikKartu(addForm: NgForm): void {
     if (addForm.valid) {
-      const korisnikId = addForm.value.korisnikId;
-      const kartaId = addForm.value.kartaId;
+      const korisnikId = addForm.value.korisnikID;
+      const kartaId = addForm.value.kartaID;
 
       this.korisnikKartaService.addKorisnikKarta(korisnikId, kartaId).subscribe({
         next: (response) => {
-          //this.korisnikKarte.push(response);
+          this.korisnikKarte.push(response);
           addForm.reset();
           this.getKorisnikKarte();
         },

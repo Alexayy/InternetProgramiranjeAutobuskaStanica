@@ -25,7 +25,6 @@ export class KorisnikKartaService {
     return this.http.post<korisnikKarta>(`${this.apiServiceUrl}/KorisnikKarta`, body);
   }
 
-
   public updateKorisnikKarta(kk: korisnikKarta): Observable<any> {
     return this.http.put(`${this.apiServiceUrl}/KorisnikKarta/${kk.id}`, kk);
   }
