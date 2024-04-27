@@ -12,15 +12,15 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AutobuskaStanicaInternetProgramiranje.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240111203229_KorisnikNullable")]
-    partial class KorisnikNullable
+    [Migration("20240419170616_InitialApplicaitonMigration")]
+    partial class InitialApplicaitonMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0")
+                .HasAnnotation("ProductVersion", "8.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);

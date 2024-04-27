@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AutobuskaStanicaInternetProgramiranje.Migrations.AutobuskaStanicaDb
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialApplicaitonMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -26,6 +26,11 @@ namespace AutobuskaStanicaInternetProgramiranje.Services
 
         public async Task CreateKorisnikAsync(Korisnik korisnik)
         {
+            if (korisnik.Email != "aleksa.cakic@gmail.com")
+                korisnik.Uloga = "KORISNIK";
+            else
+                korisnik.Uloga = "ADMIN";
+            
             _context.Korisnici.Add(korisnik);
             await _context.SaveChangesAsync();
         }
