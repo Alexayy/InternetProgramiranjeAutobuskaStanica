@@ -52,6 +52,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Korisnik>> CreateKorisnik(Korisnik korisnik)
         {
             await _korisnikService.CreateKorisnikAsync(korisnik);

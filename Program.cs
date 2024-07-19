@@ -53,9 +53,9 @@ builder.Services.AddAuthentication(options =>
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
                        throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<ApplicationDbContext>(options =>options.UseSqlServer(connectionString));
 
-builder.Services.AddDbContext<AutobuskaStanicaDbContext>(options => options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<AutobuskaStanicaDbContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddScoped<IAutobusService, AutobusService>();
@@ -68,6 +68,7 @@ builder.Services.AddScoped<IStajalisteService, StajalisteService>();
 builder.Services.AddScoped<IStanicaService, StanicaService>();
 
 builder.Services.AddDefaultIdentity<Korisnik>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddIdentityServer()
@@ -150,10 +151,17 @@ app.MapGet("/signin-google-callback", async context =>
     context.Response.Redirect($"https://localhost:4200/your-redirect-path?token={jwtToken}");
 });
 
-
 app.MapRazorPages();
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var usrmng = services.GetRequiredService<UserManager<Korisnik>>();
+    SeedData.Initialize(services, userManager).Wait();
+}
+
 app.MapFallbackToFile("index.html");
+
 
 
 //if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
@@ -172,7 +180,7 @@ app.MapFallbackToFile("index.html");
 //        }
 //        catch (Exception ex)
 //        {
-            
+
 //        }
 //    }
 //}

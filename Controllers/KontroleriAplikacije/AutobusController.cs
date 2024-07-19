@@ -1,5 +1,6 @@
 ﻿using AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije;
 using AutobuskaStanicaInternetProgramiranje.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
@@ -34,6 +35,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Autobus>> CreateAutobus(Autobus autobus)
         {
             if (await _autobusService.AutobusExistsAsync(autobus.ID))
@@ -45,6 +47,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateAutobus(int id, Autobus autobus)
         {
             if (id != autobus.ID)
@@ -57,6 +60,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteAutobus(int id)
         {
             await _autobusService.DeleteAutobusAsync(id);

@@ -1,6 +1,7 @@
 ﻿using AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije;
 using AutobuskaStanicaInternetProgramiranje.Repository;
 using AutobuskaStanicaInternetProgramiranje.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
@@ -43,6 +44,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
 
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Put(int id, Karta karta)
         {
             if (id != karta.ID)
@@ -52,6 +54,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             await _kartaService.DeleteKartaAsync(id);

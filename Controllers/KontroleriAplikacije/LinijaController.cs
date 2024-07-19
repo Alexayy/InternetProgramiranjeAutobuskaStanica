@@ -1,5 +1,6 @@
 ﻿using AutobuskaStanicaInternetProgramiranje.Models.ModeliAplikacije;
 using AutobuskaStanicaInternetProgramiranje.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
@@ -32,6 +33,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Post(Linija linija)
         {
             await _linijaService.CreateLinijaAsync(linija);
@@ -39,6 +41,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Put(int id, Linija linija)
         {
             if (id != linija.ID)
@@ -48,6 +51,7 @@ namespace AutobuskaStanicaInternetProgramiranje.Controllers.KontroleriAplikacije
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             await _linijaService.DeleteLinijaAsync(id);

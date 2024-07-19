@@ -30,6 +30,7 @@ export enum AuthenticationResultStatus {
 }
 
 export interface IUser {
+  role?: string | null;
   name?: string;
 }
 
@@ -40,7 +41,7 @@ export class AuthorizeService {
   // By default pop ups are disabled because they don't work properly on Edge.
   // If you want to enable pop up authentication simply set this flag to false.
 
-  private popUpDisabled = true;
+  private popUpDisabled = false;
   private userManager?: UserManager;
   private userSubject: BehaviorSubject<IUser | null> = new BehaviorSubject<IUser | null>(null);
 
@@ -188,6 +189,10 @@ export class AuthorizeService {
       await this.userManager!.removeUser();
       this.userSubject.next(null);
     });
+  }
+
+  public isAdmin(): Observable<boolean> {
+    return this.getUser().pipe(map(user => user && user.role && user.role.includes('Admin')));
   }
 
   private getUserFromStorage(): Observable<IUser | null> {

@@ -1,0 +1,574 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\api-authorization\\authorize.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\api-authorization\\authorize.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\app\\komponente\\korisnik\\korisnik.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\app\\komponente\\korisnik\\korisnik.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\app\\komponente\\korisnik\\korisnik.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\app\\komponente\\korisnik\\korisnik.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\api-authorization\\authorize.interceptor.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\api-authorization\\authorize.interceptor.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\api-authorization\\authorize.guard.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\api-authorization\\authorize.guard.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\api-authorization\\api-authorization.constants.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\api-authorization\\api-authorization.constants.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\api-authorization\\api-authorization.module.spec.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\api-authorization\\api-authorization.module.spec.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\app\\nav-menu\\nav-menu.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\app\\nav-menu\\nav-menu.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\app\\nav-menu\\nav-menu.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\app\\nav-menu\\nav-menu.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\app\\servisi\\auth\\auth.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\app\\servisi\\auth\\auth.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\app\\servisi\\autobus\\autobus.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\app\\servisi\\autobus\\autobus.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\app\\servisi\\karta\\karta.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\app\\servisi\\karta\\karta.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\app\\servisi\\korisnik\\korisnik.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\app\\servisi\\korisnik\\korisnik.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\app\\servisi\\korisnik-karta\\korisnik-karta.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\app\\servisi\\korisnik-karta\\korisnik-karta.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\app\\servisi\\linija\\linija.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\app\\servisi\\linija\\linija.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\app\\servisi\\rezervacija\\rezervacija.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\app\\servisi\\rezervacija\\rezervacija.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\app\\servisi\\stajaliste\\stajaliste.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\app\\servisi\\stajaliste\\stajaliste.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\clientapp\\src\\app\\servisi\\stanica\\stanica.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:clientapp\\src\\app\\servisi\\stanica\\stanica.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:data\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Migrations\\20240617164501_CreateIdentitySchema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20240617164501_CreateIdentitySchema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\models\\modeliaplikacije\\korisnik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:models\\modeliaplikacije\\korisnik.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\controllers\\oidcconfigurationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:controllers\\oidcconfigurationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\controllers\\kontroleriaplikacije\\stanicacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:controllers\\kontroleriaplikacije\\stanicacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\controllers\\kontroleriaplikacije\\stajalistecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:controllers\\kontroleriaplikacije\\stajalistecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\controllers\\kontroleriaplikacije\\rezervacijacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:controllers\\kontroleriaplikacije\\rezervacijacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\controllers\\kontroleriaplikacije\\linijacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:controllers\\kontroleriaplikacije\\linijacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\controllers\\kontroleriaplikacije\\korisnikkartacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:controllers\\kontroleriaplikacije\\korisnikkartacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\controllers\\kontroleriaplikacije\\kartacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:controllers\\kontroleriaplikacije\\kartacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\controllers\\kontroleriaplikacije\\autobuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:controllers\\kontroleriaplikacije\\autobuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|c:\\users\\aleks\\internetprogramiranjeautobuskastanica\\controllers\\kontroleriaplikacije\\korisnikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF91D203-0B96-4896-A915-6F98DB5A7AE2}|AutobuskaStanicaInternetProgramiranje.csproj|solutionrelative:controllers\\kontroleriaplikacije\\korisnikcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 219,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "korisnik.component.html",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\komponente\\korisnik\\korisnik.component.html",
+              "RelativeDocumentMoniker": "ClientApp\\src\\app\\komponente\\korisnik\\korisnik.component.html",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\komponente\\korisnik\\korisnik.component.html",
+              "RelativeToolTip": "ClientApp\\src\\app\\komponente\\korisnik\\korisnik.component.html",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-06-17T17:00:18.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "korisnik.component.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\komponente\\korisnik\\korisnik.component.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\app\\komponente\\korisnik\\korisnik.component.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\komponente\\korisnik\\korisnik.component.ts",
+              "RelativeToolTip": "ClientApp\\src\\app\\komponente\\korisnik\\korisnik.component.ts",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:59:33.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "authorize.service.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\api-authorization\\authorize.service.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\api-authorization\\authorize.service.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\api-authorization\\authorize.service.ts",
+              "RelativeToolTip": "ClientApp\\src\\api-authorization\\authorize.service.ts",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAawCAAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:57:56.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "authorize.interceptor.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\api-authorization\\authorize.interceptor.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\api-authorization\\authorize.interceptor.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\api-authorization\\authorize.interceptor.ts",
+              "RelativeToolTip": "ClientApp\\src\\api-authorization\\authorize.interceptor.ts",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:57:42.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "authorize.guard.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\api-authorization\\authorize.guard.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\api-authorization\\authorize.guard.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\api-authorization\\authorize.guard.ts",
+              "RelativeToolTip": "ClientApp\\src\\api-authorization\\authorize.guard.ts",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:57:32.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "api-authorization.constants.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\api-authorization\\api-authorization.constants.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\api-authorization\\api-authorization.constants.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\api-authorization\\api-authorization.constants.ts",
+              "RelativeToolTip": "ClientApp\\src\\api-authorization\\api-authorization.constants.ts",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:57:23.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "api-authorization.module.spec.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\api-authorization\\api-authorization.module.spec.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\api-authorization\\api-authorization.module.spec.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\api-authorization\\api-authorization.module.spec.ts",
+              "RelativeToolTip": "ClientApp\\src\\api-authorization\\api-authorization.module.spec.ts",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:57:21.439Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "nav-menu.component.html",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\nav-menu\\nav-menu.component.html",
+              "RelativeDocumentMoniker": "ClientApp\\src\\app\\nav-menu\\nav-menu.component.html",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\nav-menu\\nav-menu.component.html",
+              "RelativeToolTip": "ClientApp\\src\\app\\nav-menu\\nav-menu.component.html",
+              "ViewState": "AQIAADsAAAAAAAAAAAAswFoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-06-17T16:49:44.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "nav-menu.component.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\nav-menu\\nav-menu.component.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\app\\nav-menu\\nav-menu.component.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\nav-menu\\nav-menu.component.ts",
+              "RelativeToolTip": "ClientApp\\src\\app\\nav-menu\\nav-menu.component.ts",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:49:42.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "auth.service.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\auth\\auth.service.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\app\\servisi\\auth\\auth.service.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\auth\\auth.service.ts",
+              "RelativeToolTip": "ClientApp\\src\\app\\servisi\\auth\\auth.service.ts",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:49:32.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "autobus.service.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\autobus\\autobus.service.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\app\\servisi\\autobus\\autobus.service.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\autobus\\autobus.service.ts",
+              "RelativeToolTip": "ClientApp\\src\\app\\servisi\\autobus\\autobus.service.ts",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:49:25.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "karta.service.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\karta\\karta.service.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\app\\servisi\\karta\\karta.service.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\karta\\karta.service.ts",
+              "RelativeToolTip": "ClientApp\\src\\app\\servisi\\karta\\karta.service.ts",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAA0AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:49:19.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "korisnik.service.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\korisnik\\korisnik.service.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\app\\servisi\\korisnik\\korisnik.service.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\korisnik\\korisnik.service.ts",
+              "RelativeToolTip": "ClientApp\\src\\app\\servisi\\korisnik\\korisnik.service.ts",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:49:14.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "korisnik-karta.service.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\korisnik-karta\\korisnik-karta.service.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\app\\servisi\\korisnik-karta\\korisnik-karta.service.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\korisnik-karta\\korisnik-karta.service.ts",
+              "RelativeToolTip": "ClientApp\\src\\app\\servisi\\korisnik-karta\\korisnik-karta.service.ts",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:49:11.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "linija.service.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\linija\\linija.service.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\app\\servisi\\linija\\linija.service.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\linija\\linija.service.ts",
+              "RelativeToolTip": "ClientApp\\src\\app\\servisi\\linija\\linija.service.ts",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwA4AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:49:05.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "rezervacija.service.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\rezervacija\\rezervacija.service.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\app\\servisi\\rezervacija\\rezervacija.service.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\rezervacija\\rezervacija.service.ts",
+              "RelativeToolTip": "ClientApp\\src\\app\\servisi\\rezervacija\\rezervacija.service.ts",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAQwBIAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:49:02.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "stajaliste.service.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\stajaliste\\stajaliste.service.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\app\\servisi\\stajaliste\\stajaliste.service.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\stajaliste\\stajaliste.service.ts",
+              "RelativeToolTip": "ClientApp\\src\\app\\servisi\\stajaliste\\stajaliste.service.ts",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:48:58.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "stanica.service.ts",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\stanica\\stanica.service.ts",
+              "RelativeDocumentMoniker": "ClientApp\\src\\app\\servisi\\stanica\\stanica.service.ts",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\ClientApp\\src\\app\\servisi\\stanica\\stanica.service.ts",
+              "RelativeToolTip": "ClientApp\\src\\app\\servisi\\stanica\\stanica.service.ts",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2024-06-17T16:48:54.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "20240617164501_CreateIdentitySchema.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Migrations\\20240617164501_CreateIdentitySchema.cs",
+              "RelativeDocumentMoniker": "Migrations\\20240617164501_CreateIdentitySchema.cs",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Migrations\\20240617164501_CreateIdentitySchema.cs",
+              "RelativeToolTip": "Migrations\\20240617164501_CreateIdentitySchema.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T16:45:01.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SeedData.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Data\\SeedData.cs",
+              "RelativeDocumentMoniker": "Data\\SeedData.cs",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Data\\SeedData.cs",
+              "RelativeToolTip": "Data\\SeedData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T16:42:01.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Korisnik.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Models\\ModeliAplikacije\\Korisnik.cs",
+              "RelativeDocumentMoniker": "Models\\ModeliAplikacije\\Korisnik.cs",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Models\\ModeliAplikacije\\Korisnik.cs",
+              "RelativeToolTip": "Models\\ModeliAplikacije\\Korisnik.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T16:38:07.403Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T16:37:46.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAI0AAAAAAAAAAAAAAJ8AAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T16:36:40.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "OidcConfigurationController.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\OidcConfigurationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OidcConfigurationController.cs",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\OidcConfigurationController.cs",
+              "RelativeToolTip": "Controllers\\OidcConfigurationController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T16:35:29.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "StanicaController.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\StanicaController.cs",
+              "RelativeDocumentMoniker": "Controllers\\KontroleriAplikacije\\StanicaController.cs",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\StanicaController.cs",
+              "RelativeToolTip": "Controllers\\KontroleriAplikacije\\StanicaController.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAwwDUAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T16:35:15.327Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "StajalisteController.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\StajalisteController.cs",
+              "RelativeDocumentMoniker": "Controllers\\KontroleriAplikacije\\StajalisteController.cs",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\StajalisteController.cs",
+              "RelativeToolTip": "Controllers\\KontroleriAplikacije\\StajalisteController.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAQwBwAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T16:34:59.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "RezervacijaController.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\RezervacijaController.cs",
+              "RelativeDocumentMoniker": "Controllers\\KontroleriAplikacije\\RezervacijaController.cs",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\RezervacijaController.cs",
+              "RelativeToolTip": "Controllers\\KontroleriAplikacije\\RezervacijaController.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAwwCoAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T16:34:44.418Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "LinijaController.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\LinijaController.cs",
+              "RelativeDocumentMoniker": "Controllers\\KontroleriAplikacije\\LinijaController.cs",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\LinijaController.cs",
+              "RelativeToolTip": "Controllers\\KontroleriAplikacije\\LinijaController.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAA0wDwAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T16:34:26.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "KorisnikKartaController.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\KorisnikKartaController.cs",
+              "RelativeDocumentMoniker": "Controllers\\KontroleriAplikacije\\KorisnikKartaController.cs",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\KorisnikKartaController.cs",
+              "RelativeToolTip": "Controllers\\KontroleriAplikacije\\KorisnikKartaController.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAIwEMAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T16:34:14.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "KartaController.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\KartaController.cs",
+              "RelativeDocumentMoniker": "Controllers\\KontroleriAplikacije\\KartaController.cs",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\KartaController.cs",
+              "RelativeToolTip": "Controllers\\KontroleriAplikacije\\KartaController.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAwwDgAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T16:33:42.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "KorisnikController.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\KorisnikController.cs",
+              "RelativeDocumentMoniker": "Controllers\\KontroleriAplikacije\\KorisnikController.cs",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\KorisnikController.cs",
+              "RelativeToolTip": "Controllers\\KontroleriAplikacije\\KorisnikController.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAmwHAAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T16:26:38.48Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "AutobusController.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\AutobusController.cs",
+              "RelativeDocumentMoniker": "Controllers\\KontroleriAplikacije\\AutobusController.cs",
+              "ToolTip": "C:\\Users\\aleks\\InternetProgramiranjeAutobuskaStanica\\Controllers\\KontroleriAplikacije\\AutobusController.cs",
+              "RelativeToolTip": "Controllers\\KontroleriAplikacije\\AutobusController.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAkwBkAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-17T16:24:18.76Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 201,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
